@@ -7,6 +7,7 @@
     <a href="https://github.com/anuraghazra/github-readme-stats">
       <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="float:right;" />
     </a>
+    <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="float:right;" />
   </div>
 </div>
 <!--
