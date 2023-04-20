@@ -2,8 +2,8 @@
   <div>
     <p style="float:left;">Hi there 👋</p>
     <p style="float:left;">🔭 I’m currently working on viewsources </p>
+    <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="float:left;" />
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" style="float:right;" />
-    <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="float:right;" />
   </div>
 </div>
 
