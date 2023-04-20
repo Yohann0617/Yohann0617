@@ -1,9 +1,7 @@
 <div>
   <div class="text">
-    <h3 align="left">
-      <p>Hi there 👋</p>
-      <p>🔭 I’m currently working on viewsources </p>
-    </h3>
+    <p>Hi there 👋</p>
+    <p>🔭 I’m currently working on viewsources </p>
   </div>
   <div>
     <a href="https://github.com/anuraghazra/github-readme-stats">
