@@ -2,7 +2,7 @@
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" />
 </a>
 <a href="https://github.com/anuraghazra/convoychat">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617&layout=compact" />
 </a>
 <!--
 **Yohann0617/Yohann0617** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
