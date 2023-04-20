@@ -10,8 +10,8 @@
       <p>😄 Thank you for your attention </p>
     </div>
     <div style="flex:1;">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617&layout=compact"/>
-      <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true"/>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617&layout=compact&theme=tokyonight"/>
+      <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true&theme=tokyonight"/>
     </div>
 
   </div>
