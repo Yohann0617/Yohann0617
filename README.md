@@ -1,8 +1,8 @@
 <div>
-  <div>
+  <div class="text">
     <h3 align="left">
-    ### Hi there 👋
-    ### 🔭 I’m currently working on viewsources
+      <p>Hi there 👋</p>
+      <p>🔭 I’m currently working on viewsources </p>
     </h3>
   </div>
   <div>
