@@ -4,6 +4,7 @@
       <p> Hi👋 It's Yohann </p>
       <p>🔭 I’m currently working on viewsources </p>
       <p>😄 Thank you for your attention </p>
+      ![Twitter:y](https://img.shields.io/twitter/follow/:y? label=Follow)
     </div>
     <div style="flex:1;">
       <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true"/>
