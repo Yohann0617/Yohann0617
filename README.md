@@ -1,9 +1,17 @@
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" />
-</a>
-<a href="https://github.com/anuraghazra/convoychat">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" />
-</a>
+<div>
+  <div style="display:flex;">
+    <div style="flex:1;">
+      <p> Hi👋 It's Yohann </p>
+      <p>🔭 I’m currently working on viewsources </p>
+      <p>😄 Thank you for your attention </p>
+    </div>
+    <div style="flex:1;">
+      <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true"/>
+      <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" />
+    </div>
+  </div>
+</div>
+
 <!--
 **Yohann0617/Yohann0617** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
