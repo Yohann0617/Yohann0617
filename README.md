@@ -1,5 +1,5 @@
 <div>
-  <div class="text" style="float:left;">
+  <div class="text" style="clear:both;">
     <p>Hi there 👋</p>
     <p>🔭 I’m currently working on viewsources </p>
   </div>
