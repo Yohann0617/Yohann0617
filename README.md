@@ -7,6 +7,8 @@
     </div>
     <div style="flex:1;">
       <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true"/>
+    </div>
+    <div style="flex:1;">
       <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" />
     </div>
   </div>
