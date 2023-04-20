@@ -5,8 +5,10 @@
       <p>🔭 I’m currently working on viewsources </p>
       <p>😄 Thank you for your attention </p>
     </div>
-    <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="display:inline-block;"  />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" style="display:inline-block;"  />
+    <div style="float:left;">
+      <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="display:inline-block;"  />
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" style="display:inline-block;"  />
+    </div>
   </div>
 </div>
 
