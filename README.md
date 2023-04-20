@@ -1,5 +1,6 @@
 [![GitHub](https://img.shields.io/badge/dynamic/json?logo=github&label=GitHub&labelColor=495867&color=495867&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3Dhayschan&style=flat-square)](https://github.com/Yohann0617)
-[![Gitee](https://img.shields.io/badge/dynamic/json?logo=Gitee&logoColor=red&label=Gitee&labelColor=95B8D1&color=95B8D1&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257CfeedsPub%26queryKey%3Dhttps://haysc.tech/feed.xml&style=flat-square)](https://gitee.com/fan-yuhui)
+[![Gitee](https://img.shields.io/badge/dynamic/json?logo=Gitee&logoColor=red&label=Gitee&labelColor=e59082&color=e59082&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257CfeedsPub%26queryKey%3Dhttps://haysc.tech/feed.xml&style=flat-square)](https://gitee.com/fan-yuhui)
+[![TikTok](https://img.shields.io/badge/dynamic/json?logo=TikTok&logoColor=black&label=TikTok&labelColor=f5efef&color=f5efef&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257CfeedsPub%26queryKey%3Dhttps://haysc.tech/feed.xml&style=flat-square)](https://www.tiktok.com/@yohann.fan?is_from_webapp=1&sender_device=pc)
 
 <div>
   <div style="display:flex;">
@@ -14,7 +15,7 @@
   </div>
 </div>
 
-You are my NO.![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg) visitor
+You are my NO.![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg) visitor.
 <!--
 **Yohann0617/Yohann0617** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
