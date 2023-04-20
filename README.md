@@ -1,9 +1,9 @@
 <div>
   <div>
-    <div style="display:inline-block;" >
-      <p style="float:left;">Hi👋 It's Yohann</p>
-      <p style="float:left;">🔭 I’m currently working on viewsources </p>
-      <p style="float:left;">😄 Thank you for your attention </p>
+    <div style="float:left;" >
+      <p>Hi👋 It's Yohann</p>
+      <p>🔭 I’m currently working on viewsources </p>
+      <p>😄 Thank you for your attention </p>
     </div>
     <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&count_private=true&show_icons=true" style="display:inline-block;"  />
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617" style="display:inline-block;"  />
