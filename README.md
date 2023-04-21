@@ -9,7 +9,7 @@
 
 ### Hi👋 It's Yohann
 - 📖 I graduated from Suzhou University of Science and Technology
-- 🔭 I’m currently working at Shanghai viewsources
+- 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
 Total Visitors:![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)
