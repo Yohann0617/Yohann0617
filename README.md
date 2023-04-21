@@ -9,4 +9,4 @@
 - 🔭 I’m currently working at Shanghai viewsources
 - 😄 Thank you for your attention
 
-You are my NO.![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg) visitor.
+Total Visitors:![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)
