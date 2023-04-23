@@ -10,6 +10,6 @@
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&show_icons=true&icon_color=blue&text_color=718096&bg_color=ffffff&hide_title=true" />
 
 ### Hi👋 It's Yohann
-- 📖 I graduated from Suzhou University of Science and Technology
+- 📖 I graduated from Suzhou University of Science and Technology in June 2022
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
