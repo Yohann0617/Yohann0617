@@ -15,6 +15,3 @@
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/Yohann0617/Yohann0617.svg)](https://starchart.cc/Yohann0617/Yohann0617)
