@@ -8,6 +8,7 @@
 |   Total Visitors:   |   ![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)   | 
 | ---- | ---- |
 |  Self-created VPN subscription address (base64) | [subscription_address](https://www.yohann.buzz/nodes) |
+|  Use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps)
 
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&show_icons=true&icon_color=blue&text_color=718096&bg_color=ffffff&hide_title=true" />
 
