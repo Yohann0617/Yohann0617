@@ -7,7 +7,7 @@
 
 |   Total Visitors:   |   ![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)   | 
 | ---- | ---- |
-|  Self-created VPN subscription address (base64) | [subscription_address](https://www.yohann.buzz/nodes) |
+|  Self-created VPN subscription address (base64) | [subscription address](https://www.yohann.buzz/nodes) |
 |  How to Use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
 |  Build Cloudflare Worker  |  [Cloudflare Worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
 
