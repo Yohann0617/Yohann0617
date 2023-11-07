@@ -7,10 +7,10 @@
 
 |   Total Visitors:   |   ![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)   | 
 | ---- | ---- |
-|  Self-created VPN subscription address (base64) | [subscription address](https://www.yohann.buzz/nodes) |
-|  How to Use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
-|  Build Cloudflare Worker  |  [Cloudflare Worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
-|  Self-built unlimited capacity netdisc address  | [yohann's netdisc](https://yo.yohann.buzz/netdisc)  |
+|  self-created VPN subscription address (base64) | [subscription address](https://www.yohann.buzz/nodes) |
+|  how to use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
+|  build cloudflare worker  |  [cloudflare worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
+|  self-built unlimited capacity netdisc address  | [yohann's netdisc](https://yo.yohann.buzz/netdisc)  |
 
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&show_icons=true&icon_color=blue&text_color=718096&bg_color=ffffff&hide_title=true" />
 
