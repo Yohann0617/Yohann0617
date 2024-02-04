@@ -7,7 +7,7 @@
 
 |   Total Visitors:   |   ![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)   | 
 | ---- | ---- |
-|  ✈️ self-created VPN subscription address (base64) | [subscription address](https://pastebin.com/raw/60HsCi3a) |
+|  ✈️ self-created VPN subscription address (base64) | [subscription address](https://chrome-go.19990617.xyz) |
 |  📑 how to use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
 |  📌 build cloudflare worker  |  [cloudflare worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
 |  ☁️ use telegram api to build unlimited capacity network disk  | [tgNetDisc](https://github.com/Yohann0617/tgNetDisc)  |
