@@ -15,8 +15,11 @@
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
-[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31nwdje3btitlnljdf3en2wrcl2u&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false)](https://github.com/kittinan/spotify-github-profile)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617&layout=donut)](https://github.com/Yohann0617/github-readme-stats)
+<hr/>
+
+### 🎵 Music I'm listening to recently
+
+![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nwdje3btitlnljdf3en2wrcl2u&width=1000&count=6)
 
 
 <br>
