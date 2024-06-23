@@ -16,10 +16,9 @@
 - 😄 Thank you for your attention
 
 
-
 ### 🎵 Music I'm listening to recently
 
-![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nwdje3btitlnljdf3en2wrcl2u&width=1000&count=5)
+![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nwdje3btitlnljdf3en2wrcl2u&width=1000&count=5&unique=true)
 
 
 <br>
