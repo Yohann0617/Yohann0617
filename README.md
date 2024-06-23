@@ -15,7 +15,7 @@
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
-<hr/>
+
 
 ### 🎵 Music I'm listening to recently
 
