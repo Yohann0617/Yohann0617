@@ -6,7 +6,7 @@
 [![bilibili](https://img.shields.io/badge/dynamic/json?logo=bilibili&logoColor=FA0B9A&label=bilibili&labelColor=F07FC3&color=green&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dbilibili%26queryKey%3D307091821&style=flat-square)](https://space.bilibili.com/307091821)
 [![网易云音乐](https://img.shields.io/badge/dynamic/json?logo=网易云音乐&logoColor=red&label=网易云音乐&labelColor=red&color=green&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3DneteaseMusic%26queryKey%3D504017687&style=flat-square)](https://music.163.com/#/user/home?id=504017687)
 
-
+[![trophy](https://github-profile-trophy.vercel.app/?username=Yohann0617&column=-1)](https://github.com/Yohann0617/github-profile-trophy)
 
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&show_icons=true&icon_color=blue&text_color=718096&bg_color=ffffff&hide_title=true" />
 
@@ -16,6 +16,9 @@
 - 😄 Thank you for your attention
 
 [![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31nwdje3btitlnljdf3en2wrcl2u&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false)](https://github.com/kittinan/spotify-github-profile)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Yohann0617&layout=donut)](https://github.com/Yohann0617/github-readme-stats)
+
+
 <br>
 
 <details>
