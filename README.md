@@ -15,6 +15,7 @@
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
+[![spotify-github-profile](https://spotify-github-profile.kittinanx.com/api/view?uid=31nwdje3btitlnljdf3en2wrcl2u&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false)](https://github.com/kittinan/spotify-github-profile)
 <br>
 
 <details>
