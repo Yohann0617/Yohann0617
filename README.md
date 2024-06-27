@@ -15,7 +15,7 @@
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
-> ![Yohann's github activity graph](https://raw.githubusercontent.com/Yohann0617/Yohann0617/output/github-contribution-grid-snake.svg)
+### ![Yohann's github activity graph](https://raw.githubusercontent.com/Yohann0617/Yohann0617/output/github-contribution-grid-snake.svg)
 
 ### 🎵 Music I'm listening to recently
 
