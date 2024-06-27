@@ -15,12 +15,13 @@
 - 🔭 I’m currently working at Shanghai ViewSources
 - 😄 Thank you for your attention
 
+> ![Yohann's github activity graph](https://raw.githubusercontent.com/Yohann0617/Yohann0617/output/github-contribution-grid-snake.svg)
 
 ### 🎵 Music I'm listening to recently
 
 ![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nwdje3btitlnljdf3en2wrcl2u&width=1000&count=5)
 
-> ![Yohann's github activity graph](https://raw.githubusercontent.com/Yohann0617/Yohann0617/output/github-contribution-grid-snake.svg)
+
 
 <details>
     <summary> ☜ Read more 👨‍💻</summary>
