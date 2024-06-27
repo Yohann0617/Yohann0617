@@ -20,6 +20,7 @@
 
 ![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nwdje3btitlnljdf3en2wrcl2u&width=1000&count=5)
 
+<hr/>
 
 <details>
     <summary> ☜ Read more 👨‍💻</summary>
@@ -38,3 +39,5 @@
 [![个人贡献](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Yohann0617&theme=github)](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Yohann0617&theme=github)
 
 </details>
+
+<hr/>
