@@ -23,7 +23,7 @@
 <br>
 
 <details>
-    <summary>Read more</summary>
+    <summary> ☜ Read more 👨‍💻</summary>
 <br>
 
 |   Total Visitors:   |   ![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)   | 
