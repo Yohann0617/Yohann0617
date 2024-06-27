@@ -32,6 +32,7 @@
 |  📑 how to use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
 |  📌 build cloudflare worker  |  [cloudflare worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
 |  ☁️ use telegram api to build unlimited capacity network disk  | [tgNetDisc](https://github.com/Yohann0617/tgNetDisc)  |
+|  ✈️ scan proxy ip in multiple ways  |  [scan-proxyip](https://github.com/Yohann0617/scan-proxyip)  |
 
 [![个人贡献](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Yohann0617&theme=github)](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Yohann0617&theme=github)
 
