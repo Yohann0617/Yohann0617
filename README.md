@@ -34,6 +34,7 @@
 |  📌 build cloudflare worker  |  [cloudflare worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
 |  ☁️ use telegram api to build unlimited capacity network disk  | [tgNetDisc](https://github.com/Yohann0617/tgNetDisc)  |
 |  ✈️ scan proxy ip in multiple ways  |  [scan-proxyip](https://github.com/Yohann0617/scan-proxyip)  |
+| ✈️ a Xray backend framework that can easily support many panels | [XrayR](https://github.com/Yohann0617/XrayR-release) |
 
 <br>
 
