@@ -36,8 +36,8 @@
 |  📑 how to use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
 |  📌 build cloudflare worker  |  [cloudflare worker](https://github.com/Yohann0617/config/tree/main/cloudflare/worker)  |
 |  ☁️ use telegram api to build unlimited capacity network disk  | [tgNetDisc](https://github.com/Yohann0617/tgNetDisc)  |
+|  🖧 scan proxy ip in multiple ways  |  [scan-proxyip](https://github.com/Yohann0617/scan-proxyip)  |
 |  📔 build a personal blog | [NotionNext](https://github.com/Yohann0617/NotionNext) |
-|  ✈️ scan proxy ip in multiple ways  |  [scan-proxyip](https://github.com/Yohann0617/scan-proxyip)  |
 |  ✈️ build airplane panel | [Xboard](https://github.com/Yohann0617/Xboard-airplane) |
 |  ✈️ deploy XrayR with docker | [deploy XrayR with docker](https://github.com/Yohann0617/XrayR) |
 |  🛩️ a Xray backend framework that can easily support many panels | [XrayR](https://github.com/Yohann0617/XrayR-release) |
