@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x  # 启用调试模式
 
 # 检查 ~/.bashrc 中是否已存在 yohann 函数定义
 grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.bashrc || echo 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' >> ~/.bashrc
@@ -26,6 +25,9 @@ grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PRO
 
 # 使更改生效
 source "$PROFILE_FILE"
+
+# 重新启动 shell 使更改生效
+exec bash
 
 # 定义颜色
 BLACK='\033[0;30m'
