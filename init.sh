@@ -39,36 +39,43 @@ CYAN='\033[0;36m'
 WHITE='\033[0;37m'
 NC='\033[0m' # 没有颜色
 
-echo -e "${CYAN}请选择一个操作：${NC}"
-echo -e "${GREEN}1) 下载并运行 kejilion.sh${NC}"
-echo -e "${YELLOW}2) 下载并运行 XrayR 安装脚本${NC}"
-echo -e "${WHITE}3) 测速(bench.sh)${NC}"
-echo -e "${WHITE}4) 部署或更新小雅影音库${NC}"
-echo -e "${RED}0) 退出${NC}"
+while true; do
+    echo -e "${CYAN}请选择一个操作：${NC}"
+    echo -e "${GREEN}1) 下载并运行 kejilion.sh${NC}"
+    echo -e "${YELLOW}2) 下载并运行 XrayR 安装脚本${NC}"
+    echo -e "${WHITE}3) 测速(bench.sh)${NC}"
+    echo -e "${WHITE}4) 部署或更新小雅影音库${NC}"
+    echo -e "${RED}0) 退出${NC}"
 
-read -p "请输入选项 (例: 1):" choice
+    read -p "请输入选项 (例: 1):" choice
 
-case $choice in
-    1)
-        echo "正在下载并运行 kejilion.sh..."
-        curl -sS -O https://raw.githubusercontent.com/kejilion/sh/main/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
-        ;;
-    2)
-        echo "正在下载并运行 XrayR-release 安装脚本..."
-        bash <(curl -Ls https://raw.githubusercontent.com/Yohann0617/XrayR-release/master/install.sh)
-        ;;
-    3)
-        wget -qO- bench.sh | bash
-        ;;
-    4)
-        echo "正在部署或更新小雅影音库..."
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/monlor/docker-xiaoya/main/install.sh)"
-        ;;
-    0)
-        echo -e "${RED}退出${NC}"
-        exit 0
-        ;;
-    *)
-        echo -e "${YELLOW}无效的选项，请输入有效数字${NC}"
-        ;;
-esac
+    case $choice in
+        1)
+            echo "正在下载并运行 kejilion.sh..."
+            curl -sS -O https://raw.githubusercontent.com/kejilion/sh/main/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
+            break
+            ;;
+        2)
+            echo "正在下载并运行 XrayR-release 安装脚本..."
+            bash <(curl -Ls https://raw.githubusercontent.com/Yohann0617/XrayR-release/master/install.sh)
+            break
+            ;;
+        3)
+            wget -qO- bench.sh | bash
+            break
+            ;;
+        4)
+            echo "正在部署或更新小雅影音库..."
+            bash -c "$(curl -fsSL https://raw.githubusercontent.com/monlor/docker-xiaoya/main/install.sh)"
+            break
+            ;;
+        0)
+            echo -e "${RED}退出${NC}"
+            exit 0
+            clear
+            ;;
+        *)
+            echo -e "${YELLOW}无效的选项，请输入有效数字${NC}"
+            ;;
+    esac
+done
