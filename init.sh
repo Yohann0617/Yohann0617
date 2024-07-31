@@ -95,7 +95,7 @@ while true; do
             ;;
         *)
             clear
-            echo -e "${PURPLE}无效的选项，请输入对应的数字${NC}"
+            echo -e "${RED}无效的选项，请输入对应的数字${NC}"
             ;;
     esac
 done
