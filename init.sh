@@ -49,21 +49,22 @@ banner=$(cat << 'EOF'
     |_|     \___/  |_| |_|  \__,_| |_| |_| |_| |_|
 
                 © 2024 Yohann. All Rights Reserved
+                
 - 系统初始化快捷脚本，输入 yohann 可快速启动此脚本 -
 EOF
 )
 
 while true; do
     # 打印banner
-    echo -e "${BLUE}$banner${NC}"
+    echo -e "${GREEN}$banner${NC}"
     echo -e "${CYAN}请选择一个操作：${NC}"
-    echo "========================================"
+    echo "==================================================="
     echo -e "${GREEN}1) 下载并运行 kejilion.sh${NC}"
     echo -e "${YELLOW}2) 下载并运行 XrayR 安装脚本${NC}"
     echo -e "${WHITE}3) 测速(bench.sh)${NC}"
     echo -e "${WHITE}4) 部署或更新小雅影音库${NC}"
     echo -e "${RED}0) 退出${NC}"
-    echo "========================================"
+    echo "==================================================="
     read -p "请输入选项 (例: 1):" choice
 
     case $choice in
