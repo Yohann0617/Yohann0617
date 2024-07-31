@@ -6,6 +6,11 @@ grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.ba
 # 使更改生效
 source ~/.bashrc
 
+# 检查 ~/.bash_profile 是否存在，不存在则创建
+if [ ! -f ~/.bash_profile ]; then
+    touch ~/.bash_profile
+fi
+
 # 检查 ~/.bash_profile 是否已包含 source ~/.bashrc
 grep -qxF 'source ~/.bashrc' ~/.bash_profile || echo 'source ~/.bashrc' >> ~/.bash_profile
 
