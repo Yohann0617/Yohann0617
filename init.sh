@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 # 检查 ~/.bashrc 中是否已存在 yohann 函数定义
 grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.bashrc || echo 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' >> ~/.bashrc
 
