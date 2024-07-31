@@ -57,6 +57,7 @@ EOF
 while true; do
     # 打印banner
     echo -e "${GREEN}$banner${NC}"
+    echo "---------------------------------------------------"
     echo -e "${CYAN}请选择一个操作：${NC}"
     echo "==================================================="
     echo -e "${GREEN}1) 下载并运行 kejilion.sh${NC}"
