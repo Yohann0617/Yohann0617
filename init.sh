@@ -3,10 +3,10 @@
 clear
 
 # 检查 ~/.bashrc 中是否已存在 yohann 函数定义
-grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.bashrc || echo 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' >> ~/.bashrc
-
-# 使更改生效
-source ~/.bashrc
+if ! grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.bashrc; then
+    echo 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' >> ~/.bashrc
+    source ~/.bashrc
+fi
 
 # 默认配置文件是 ~/.profile
 PROFILE_FILE=~/.profile
@@ -23,10 +23,10 @@ if [ ! -f "$PROFILE_FILE" ]; then
 fi
 
 # 检查 PROFILE_FILE 是否已包含 source ~/.bashrc
-grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PROFILE_FILE"
-
-# 使更改生效
-source "$PROFILE_FILE"
+if ! grep -qxF 'source ~/.bashrc' "$PROFILE_FILE"; then
+    echo 'source ~/.bashrc' >> "$PROFILE_FILE"
+    source "$PROFILE_FILE"
+fi
 
 # 定义颜色
 BLACK='\033[0;30m'
