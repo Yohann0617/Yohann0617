@@ -25,9 +25,10 @@ grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PRO
 
 # 使更改生效
 source "$PROFILE_FILE"
-
-# 重新启动 shell 使更改生效
-exec bash
+# 使更改生效
+source ~/.bashrc
+# 使更改生效
+source "$PROFILE_FILE"
 
 # 定义颜色
 BLACK='\033[0;30m'
