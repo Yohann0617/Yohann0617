@@ -39,8 +39,8 @@ CYAN='\033[0;36m'
 WHITE='\033[0;37m'
 NC='\033[0m' # 没有颜色
 
-# 定义一个多行字符串作为banner
-banner="
+# 使用cat命令和重定向定义多行字符串
+banner=$(cat << 'EOF'
  __     __          _                             
  \ \   / /         | |                            
   \ \_/ /    ___   | |__     __ _   _ __    _ __  
@@ -50,7 +50,8 @@ banner="
 
                 © 2024 Yohann. All Rights Reserved
 - 系统初始化快捷脚本，输入 yohann 可快速启动此脚本 -
-"
+EOF
+)
 
 while true; do
     # 打印banner
