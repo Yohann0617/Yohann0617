@@ -13,6 +13,11 @@ PROFILE_FILE=~/.profile
 if [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
     # 如果是 CentOS，使用 ~/.bash_profile
     PROFILE_FILE=~/.bash_profile
+    # 检查 PROFILE_FILE 是否已包含 source ~/.bashrc
+    grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PROFILE_FILE"
+
+    # 使更改生效
+    source "$PROFILE_FILE"
 fi
 
 # 检查 PROFILE_FILE 是否存在，不存在则创建
@@ -21,10 +26,10 @@ if [ ! -f "$PROFILE_FILE" ]; then
 fi
 
 # 检查 PROFILE_FILE 是否已包含 source ~/.bashrc
-grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PROFILE_FILE"
+# grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PROFILE_FILE"
 
 # 使更改生效
-source "$PROFILE_FILE"
+# source "$PROFILE_FILE"
 
 
 # 定义颜色
