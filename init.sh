@@ -71,10 +71,11 @@ while true; do
             ;;
         0)
             echo -e "${RED}退出${NC}"
-            exit 0
             clear
+            exit 0
             ;;
         *)
+            clear
             echo -e "${YELLOW}无效的选项，请输入有效数字${NC}"
             ;;
     esac
