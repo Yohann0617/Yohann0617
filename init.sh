@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# 检查 ~/.bashrc 中是否已存在 yohann 函数定义
+grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.bashrc || echo 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' >> ~/.bashrc
+
+# 使更改生效
+source ~/.bashrc
+
+# 检查 ~/.bash_profile 是否已包含 source ~/.bashrc
+grep -qxF 'source ~/.bashrc' ~/.bash_profile || echo 'source ~/.bashrc' >> ~/.bash_profile
+
+# 使更改生效
+source ~/.bash_profile
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
