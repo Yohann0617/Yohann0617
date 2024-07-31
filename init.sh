@@ -6,16 +6,28 @@ grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.ba
 # 使更改生效
 source ~/.bashrc
 
-# 检查 ~/.bash_profile 是否存在，不存在则创建
-if [ ! -f ~/.bash_profile ]; then
-    touch ~/.bash_profile
+# 根据系统类型处理配置文件
+if [ -f /etc/debian_version ] || [ -f /etc/ubuntu-release ]; then
+    # Debian 或 Ubuntu 系统
+    PROFILE_FILE=~/.profile
+elif [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
+    # CentOS 系统
+    PROFILE_FILE=~/.bash_profile
+else
+    echo "Unsupported distribution. Please manually check the configuration."
+    exit 1
 fi
 
-# 检查 ~/.bash_profile 是否已包含 source ~/.bashrc
-grep -qxF 'source ~/.bashrc' ~/.bash_profile || echo 'source ~/.bashrc' >> ~/.bash_profile
+# 检查 PROFILE_FILE 是否存在，不存在则创建
+if [ ! -f "$PROFILE_FILE" ]; then
+    touch "$PROFILE_FILE"
+fi
+
+# 检查 PROFILE_FILE 是否已包含 source ~/.bashrc
+grep -qxF 'source ~/.bashrc' "$PROFILE_FILE" || echo 'source ~/.bashrc' >> "$PROFILE_FILE"
 
 # 使更改生效
-source ~/.bash_profile
+source "$PROFILE_FILE"
 
 # 定义颜色
 BLACK='\033[0;30m'
