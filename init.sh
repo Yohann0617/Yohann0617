@@ -92,7 +92,7 @@ while true; do
         5)
             echo "正在卸载此脚本..."
             sed -i '/yohann() { bash <(curl -LsS https:\/\/blog.jvm.us.kg\/init.sh); }/d' ~/.bashrc
-            sed -i '/source ~/.bashrc/d' "$PROFILE_FILE"
+            sed -i '/source ~\/.bashrc/d' "$PROFILE_FILE"
             source ~/.bashrc
             source "$PROFILE_FILE"
             clear
