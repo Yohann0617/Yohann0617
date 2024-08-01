@@ -94,7 +94,7 @@ while true; do
             sed -i '/yohann() { bash <(curl -LsS https:\/\/blog.jvm.us.kg\/init.sh); }/d' ~/.bashrc
             sed -i '/source ~/.bashrc/d' "$PROFILE_FILE"
             clear
-            echo "${GREEN}脚本已成功卸载。${NC}"
+            echo -e "${GREEN}脚本已成功卸载。${NC}"
             break
             ;;
         0)
