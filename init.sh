@@ -96,7 +96,7 @@ while true; do
             source ~/.bashrc
             source "$PROFILE_FILE"
             clear
-            echo -e "${GREEN}脚本已成功卸载。${NC}"
+            echo -e "${GREEN}脚本已成功卸载${NC}"
             break
             ;;
         0)
