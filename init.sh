@@ -96,7 +96,7 @@ while true; do
             source ~/.bashrc
             source "$PROFILE_FILE"
             clear
-            echo -e "${GREEN}脚本已成功卸载${NC}"
+            echo -e "${GREEN}脚本已成功卸载，请勿再执行 yohann 命令，重新打开终端即可${NC}"
             break
             ;;
         0)
