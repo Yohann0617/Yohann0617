@@ -90,7 +90,7 @@ upload_file() {
     read -p "请输入API URL: " api_url
 
     # 提示用户输入cookie参数
-    read -p "请输入cookie参数（例如：p=password）: " cookie
+    read -p "请输入密码，未设置可忽略（例如：p=123456）: " cookie
 
     # 执行curl命令并将响应保存到变量response中
     response=$(curl -X POST -F "image=@$tar_filename;type=application/octet-stream" -b "$cookie" "$api_url")
