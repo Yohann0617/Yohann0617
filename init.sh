@@ -28,6 +28,55 @@ if ! grep -qxF 'source ~/.bashrc' "$PROFILE_FILE"; then
     source "$PROFILE_FILE"
 fi
 
+# 备份
+backup_directory() {
+    clear
+    # 提示用户输入需要备份的目录
+    read -p "请输入需要备份的目录: " source_dir
+
+    # 检查输入的目录是否存在
+    if [ ! -d "$source_dir" ]; then
+        echo "目录不存在，请检查输入并重试。"
+        return 1
+    fi
+
+    # 设置默认备份目录
+    backup_folder="/root/backup"
+    # 如果备份目录不存在，则创建它
+    if [ ! -d "$backup_folder" ]; then
+        mkdir -p "$backup_folder"
+    fi
+
+    # 获取当前日期和时间以用于备份文件名
+    timestamp=$(date +"%Y%m%d%H%M%S")
+    # 获取目录名称
+    dir_name=$(basename "$source_dir")
+    # 设置临时同步目录路径
+    temp_sync_dir="$backup_folder/${dir_name}_sync_$timestamp"
+    # 设置备份文件路径
+    backup_file="$backup_folder/${dir_name}_backup_$timestamp.tar.gz"
+
+    # 使用rsync进行同步
+    rsync -a --info=progress2 "$source_dir/" "$temp_sync_dir/"
+
+    # 检查rsync命令是否成功
+    if [ $? -eq 0 ]; then
+        # 创建tar包并包含目录的文件夹
+        tar -czvf "$backup_file" -C "$backup_folder" "${dir_name}_sync_$timestamp" > /dev/null
+
+        # 删除临时同步目录
+        rm -rf "$temp_sync_dir"
+
+        if [ $? -eq 0 ]; then
+            echo "备份成功，文件已保存为：$backup_file"
+        else
+            echo "打包失败，请检查错误信息。"
+        fi
+    else
+        echo "备份失败，请检查错误信息。"
+    fi
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -64,7 +113,8 @@ while true; do
     echo -e "${YELLOW}2) 下载并运行 XrayR 安装脚本${NC}"
     echo -e "${WHITE}3) 测速(bench.sh)${NC}"
     echo -e "${WHITE}4) 部署或更新小雅影音库${NC}"
-    echo -e "${PURPLE}5) 卸载此脚本${NC}"
+    echo -e "${WHITE}5) 备份指定目录${NC}"
+    echo -e "${PURPLE}00) 卸载此脚本${NC}"
     echo -e "${RED}0) 退出${NC}"
     echo "===================================================="
     read -p "请输入选项 (例: 1):" choice
@@ -90,6 +140,10 @@ while true; do
             break
             ;;
         5)
+            backup_directory
+            break
+            ;;
+        00)
             echo "正在卸载此脚本..."
             sed -i '/yohann() { bash <(curl -LsS https:\/\/blog.jvm.us.kg\/init.sh); }/d' ~/.bashrc
             sed -i '/source ~\/.bashrc/d' "$PROFILE_FILE"
