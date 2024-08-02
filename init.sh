@@ -77,6 +77,37 @@ backup_directory() {
     fi
 }
 
+# 上传文件
+upload_file() {
+    clear
+
+    echo "tgNetDisc项目地址：https://github.com/Yohann0617/tgNetDisc"
+
+    # 提示用户输入文件的名称
+    read -p "请输入文件的名称（包括路径）: " tar_filename
+
+    # 提示用户输入API URL
+    read -p "请输入API URL: " api_url
+
+    # 提示用户输入cookie参数
+    read -p "请输入cookie参数（例如：p=password）: " cookie
+
+    # 执行curl命令并将响应保存到变量response中
+    response=$(curl -X POST -F "image=@$tar_filename;type=application/octet-stream" -b "$cookie" "$api_url")
+
+    # 提取返回的JSON中的code值
+    code=$(echo $response | grep -o '"code":[0-9]*' | grep -o '[0-9]*')
+
+    # 判断上传是否成功
+    if [ "$code" -eq 1 ]; then
+        url=$(echo $response | grep -o '"url":"[^"]*' | grep -o 'http[^"]*')
+        echo "上传成功！文件可通过以下链接访问：$url"
+    else
+        message=$(echo $response | grep -o '"message":"[^"]*' | grep -o ':[^"]*' | cut -c 2-)
+        echo "上传失败！错误信息：$message"
+    fi
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -114,6 +145,7 @@ while true; do
     echo -e "${WHITE}3) 测速(bench.sh)${NC}"
     echo -e "${WHITE}4) 部署或更新小雅影音库${NC}"
     echo -e "${WHITE}5) 备份指定目录${NC}"
+    echo -e "${WHITE}6) 上传文件到个人网盘(tgNetDisc)${NC}"
     echo -e "${PURPLE}00) 卸载此脚本${NC}"
     echo -e "${RED}0) 退出${NC}"
     echo "===================================================="
@@ -141,6 +173,10 @@ while true; do
             ;;
         5)
             backup_directory
+            break
+            ;;
+        6)
+            upload_file
             break
             ;;
         00)
