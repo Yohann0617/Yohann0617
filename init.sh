@@ -28,6 +28,37 @@ if ! grep -qxF 'source ~/.bashrc' "$PROFILE_FILE"; then
     source "$PROFILE_FILE"
 fi
 
+# Detect the OS type
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+elif [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    OS=$DISTRIB_ID
+elif [ -f /etc/debian_version ]; then
+    OS=debian
+elif [ -f /etc/redhat-release ]; then
+    OS=centos
+else
+    OS=$(uname -s)
+fi
+
+# Define the install command based on the OS type
+case "$OS" in
+    ubuntu|debian)
+        INSTALL_CMD="apt-get install -y"
+        UPDATE_CMD="apt-get update"
+        ;;
+    centos|rhel|fedora)
+        INSTALL_CMD="yum install -y"
+        UPDATE_CMD="yum update"
+        ;;
+    *)
+        echo "Unsupported OS: $OS"
+        exit 1
+        ;;
+esac
+
 # 备份
 backup_directory() {
     clear
@@ -108,6 +139,36 @@ upload_file() {
     fi
 }
 
+# tab补全
+install_tab(){
+    clear
+    # 安装bash-complete
+    $INSTALL_CMD bash-completion
+    # 刷新文件
+    source /usr/share/bash-completion/completions/docker
+    # 刷新文件
+    source /usr/share/bash-completion/bash_completion
+}
+
+# oce保活
+install_oci_alive(){
+    clear
+    # Check if the container 'lookbusy' exists
+    if [ "$(docker ps -a -q -f name=lookbusy)" ]; then
+        echo "Container 'lookbusy' already exists. Removing it..."
+        docker rm -f lookbusy
+    fi
+
+    read -p "请输入CPU占用百分比(例：10-20): " CPU_UTIL
+    read -p "请输入内存占用百分比(例：15): " MEM_UTIL
+    docker run -itd --name=lookbusy --restart=always \
+    -e TZ=Asia/Shanghai \
+    -e CPU_UTIL=$CPU_UTIL \
+    -e MEM_UTIL=$MEM_UTIL \
+    -e SPEEDTEST_INTERVAL=120 \
+    fogforest/lookbusy
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -146,6 +207,8 @@ while true; do
     echo -e "${WHITE}4) 部署或更新小雅影音库${NC}"
     echo -e "${WHITE}5) 备份指定目录${NC}"
     echo -e "${WHITE}6) 上传文件到个人网盘(tgNetDisc)${NC}"
+    echo -e "${WHITE}7) 安装Tab命令补全工具(bash-completion)${NC}"
+    echo -e "${WHITE}8) docker安装甲骨文保活工具(lookbusy)${NC}"
     echo -e "${PURPLE}00) 卸载此脚本${NC}"
     echo -e "${RED}0) 退出${NC}"
     echo "===================================================="
@@ -177,6 +240,16 @@ while true; do
             ;;
         6)
             upload_file
+            break
+            ;;
+        7)
+            echo "正在安装Tab命令补全工具(bash-completion)..."
+            install_tab
+            break
+            ;;
+        8)
+            echo "正在安装甲骨文保活工具(lookbusy)..."
+            install_oci_alive
             break
             ;;
         00)
