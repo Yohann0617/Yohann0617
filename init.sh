@@ -189,9 +189,10 @@ banner=$(cat << 'EOF'
     | |    | (_) | | | | | | (_| | | | | | | | | |
     |_|     \___/  |_| |_|  \__,_| |_| |_| |_| |_|
 
-                                                © 2024 Yohann. All Rights Reserved
+                    © 2024 Yohann. All Rights Reserved
                 
-- 系统初始化快捷脚本，输入 yohann 可快速启动此脚本，部分工具安装完之后需重开终端才生效哦~ -
+· 系统初始化快捷脚本，输入${YELLOW}yohann${NC}可快速启动此脚本
+· 部分工具安装完之后需${YELLOW}重新打开终端${NC}才生效哦~
 EOF
 )
 
