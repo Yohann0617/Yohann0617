@@ -169,6 +169,30 @@ install_oci_alive(){
     fogforest/lookbusy
 }
 
+# 定时日志清理
+log_clean(){
+    clear
+    mkdir -p /root/shell
+    echo '#!/bin/bash
+    cd /var/log
+    find . -type f -name "*20[0-9][0-9]*" -exec rm {} \;
+    find . -type f \( -name ".*[0-9]" -o -name "*.gz" \) -exec rm {} \;
+    find . -type f -exec truncate -s 0 {} \;
+    echo "✔✔✔ /var/log 目录下日志已清空✔✔✔"
+    echo "==================== start clean docker containers logs =========================="
+    logs=$(find /var/lib/docker/containers/ -name *-json.log)
+    for log in $logs
+    do
+        echo "clean logs : $log"
+        cat /dev/null > $log
+    done
+    echo "==================== end clean docker containers logs   =========================="' > /root/shell/clean_log.sh
+    
+    chmod +x /root/shell/clean_log.sh
+    echo "0 0 * * * /root/shell/clean_log.sh" > /root/shell/cron.conf
+    crontab /root/shell/cron.conf && crontab -l
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -210,6 +234,7 @@ while true; do
     echo -e "${WHITE}6) 上传文件到个人网盘(tgNetDisc)${NC}"
     echo -e "${WHITE}7) 安装Tab命令补全工具(bash-completion)${NC}"
     echo -e "${WHITE}8) docker安装甲骨文保活工具(lookbusy)${NC}"
+    echo -e "${WHITE}9) 设置定时日志清理任务${NC}"
     echo -e "${PURPLE}00) 卸载此脚本${NC}"
     echo -e "${RED}0) 退出${NC}"
     echo "===================================================="
@@ -251,6 +276,12 @@ while true; do
         8)
             echo "正在安装甲骨文保活工具(lookbusy)..."
             install_oci_alive
+            break
+            ;;
+        9)
+            echo "正在设置定时日志清理任务..."
+            log_clean
+            echo "定时日志清理任务设置成功！"
             break
             ;;
         00)
