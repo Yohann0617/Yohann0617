@@ -193,6 +193,93 @@ log_clean(){
     crontab /root/shell/cron.conf && crontab -l
 }
 
+install_add_docker() {
+    echo -e "${gl_huang}正在安装docker环境...${gl_bai}"
+    if  [ -f /etc/os-release ] && grep -q "Fedora" /etc/os-release; then
+        install_add_docker_guanfang
+    elif command -v dnf &>/dev/null; then
+        dnf update -y
+        dnf install -y yum-utils device-mapper-persistent-data lvm2
+        rm -f /etc/yum.repos.d/docker*.repo > /dev/null
+        country=$(curl -s ipinfo.io/country)
+        arch=$(uname -m)
+        if [ "$country" = "CN" ]; then
+            if [ "$arch" = "x86_64" ]; then
+                curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo | tee /etc/yum.repos.d/docker-ce.repo > /dev/null
+            elif [ "$arch" = "aarch64" ]; then
+                curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/centos/arm64/docker-ce.repo | tee /etc/yum.repos.d/docker-ce.repo > /dev/null
+            fi
+        else
+            if [ "$arch" = "x86_64" ]; then
+                yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo > /dev/null
+            elif [ "$arch" = "aarch64" ]; then
+                yum-config-manager --add-repo https://download.docker.com/linux/centos/arm64/docker-ce.repo > /dev/null
+            fi
+        fi
+        dnf install -y docker-ce docker-ce-cli containerd.io
+        install_add_docker_cn
+        k enable docker
+        k start docker
+
+    elif [ -f /etc/os-release ] && grep -q "Kali" /etc/os-release; then
+        apt update
+        apt upgrade -y
+        apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
+        rm -f /usr/share/keyrings/docker-archive-keyring.gpg
+        country=$(curl -s ipinfo.io/country)
+        arch=$(uname -m)
+        if [ "$country" = "CN" ]; then
+            if [ "$arch" = "x86_64" ]; then
+                sed -i '/^deb \[arch=amd64 signed-by=\/etc\/apt\/keyrings\/docker-archive-keyring.gpg\] https:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian bullseye stable/d' /etc/apt/sources.list.d/docker.list > /dev/null
+                mkdir -p /etc/apt/keyrings
+                curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker-archive-keyring.gpg > /dev/null
+                echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+            elif [ "$arch" = "aarch64" ]; then
+                sed -i '/^deb \[arch=arm64 signed-by=\/etc\/apt\/keyrings\/docker-archive-keyring.gpg\] https:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian bullseye stable/d' /etc/apt/sources.list.d/docker.list > /dev/null
+                mkdir -p /etc/apt/keyrings
+                curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker-archive-keyring.gpg > /dev/null
+                echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+            fi
+        else
+            if [ "$arch" = "x86_64" ]; then
+                sed -i '/^deb \[arch=amd64 signed-by=\/usr\/share\/keyrings\/docker-archive-keyring.gpg\] https:\/\/download.docker.com\/linux\/debian bullseye stable/d' /etc/apt/sources.list.d/docker.list > /dev/null
+                mkdir -p /etc/apt/keyrings
+                curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker-archive-keyring.gpg > /dev/null
+                echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+            elif [ "$arch" = "aarch64" ]; then
+                sed -i '/^deb \[arch=arm64 signed-by=\/usr\/share\/keyrings\/docker-archive-keyring.gpg\] https:\/\/download.docker.com\/linux\/debian bullseye stable/d' /etc/apt/sources.list.d/docker.list > /dev/null
+                mkdir -p /etc/apt/keyrings
+                curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker-archive-keyring.gpg > /dev/null
+                echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+            fi
+        fi
+        apt update
+        apt install -y docker-ce docker-ce-cli containerd.io
+        install_add_docker_cn
+        k enable docker
+        k start docker
+
+    elif command -v apt &>/dev/null || command -v yum &>/dev/null; then
+        install_add_docker_guanfang
+    else
+        k install docker docker-compose
+        install_add_docker_cn
+        k enable docker
+        k start docker
+    fi
+    sleep 2
+}
+
+# 安装docker
+install_docker() {
+    if ! command -v docker &>/dev/null; then
+        clear
+        install_add_docker
+    else
+        echo -e "${gl_lv}Docker环境已经安装${gl_bai}"
+    fi
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -235,6 +322,7 @@ while true; do
     echo -e "${WHITE}7) 安装Tab命令补全工具(bash-completion)${NC}"
     echo -e "${WHITE}8) docker安装甲骨文保活工具(lookbusy)${NC}"
     echo -e "${WHITE}9) 设置定时日志清理任务${NC}"
+    echo -e "${WHITE}10) 安装Docker${NC}"
     echo -e "${PURPLE}00) 卸载此脚本${NC}"
     echo -e "${RED}0) 退出${NC}"
     echo "===================================================="
@@ -282,6 +370,11 @@ while true; do
             echo "正在设置定时日志清理任务..."
             log_clean
             echo "定时日志清理任务设置成功！"
+            break
+            ;;
+        10)
+            install_docker
+            echo "docker安装成功！"
             break
             ;;
         00)
