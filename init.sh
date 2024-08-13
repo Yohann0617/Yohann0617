@@ -144,6 +144,7 @@ install_tab(){
     clear
     # 安装bash-complete
     $INSTALL_CMD bash-completion
+    install_docker
     # 刷新文件
     source /usr/share/bash-completion/completions/docker
     # 刷新文件
@@ -153,6 +154,7 @@ install_tab(){
 # oce保活
 install_oci_alive(){
     clear
+    install_docker
     # Check if the container 'lookbusy' exists
     if [ "$(docker ps -a -q -f name=lookbusy)" ]; then
         echo "Container 'lookbusy' already exists. Removing it..."
@@ -172,6 +174,7 @@ install_oci_alive(){
 # 定时日志清理
 log_clean(){
     clear
+    install_docker
     mkdir -p /root/shell
     echo '#!/bin/bash
     cd /var/log
