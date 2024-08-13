@@ -275,8 +275,9 @@ install_docker() {
     if ! command -v docker &>/dev/null; then
         clear
         install_add_docker
+        echo -e "${GREEN}Docker安装成功！${NC}"
     else
-        echo -e "${gl_lv}Docker环境已经安装${gl_bai}"
+        echo -e "${GREEN}Docker环境已经安装${NC}"
     fi
 }
 
@@ -374,7 +375,6 @@ while true; do
             ;;
         10)
             install_docker
-            echo "docker安装成功！"
             break
             ;;
         00)
