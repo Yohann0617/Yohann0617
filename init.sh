@@ -11,11 +11,21 @@ fi
 # 默认配置文件是 ~/.profile
 PROFILE_FILE=~/.profile
 
-# 检查系统是否是 CentOS
-if [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
-    # 如果是 CentOS，使用 ~/.bash_profile
-    PROFILE_FILE=~/.bash_profile
-fi
+# centos等系统
+os_files=(
+    "/etc/centos-release"
+    "/etc/redhat-release"
+    "/etc/kylin-release"
+)
+
+# 遍历数组，检查系统是否为支持的发行版
+for os_file in "${os_files[@]}"; do
+    if [ -f "$os_file" ]; then
+        # 如果找到匹配的发行版文件，使用 ~/.bash_profile
+        PROFILE_FILE=~/.bash_profile
+        break
+    fi
+done
 
 # 检查 PROFILE_FILE 是否存在，不存在则创建
 if [ ! -f "$PROFILE_FILE" ]; then
