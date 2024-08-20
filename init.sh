@@ -3,8 +3,8 @@
 clear
 
 # 检查 ~/.bashrc 中是否已存在 yohann 函数定义
-if ! grep -qxF 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' ~/.bashrc; then
-    echo 'yohann() { bash <(curl -LsS https://blog.jvm.us.kg/init.sh); }' >> ~/.bashrc
+if ! grep -qxF 'yohann() { bash <(curl -LsS https://init.19990617.xyz/init.sh); }' ~/.bashrc; then
+    echo 'yohann() { bash <(curl -LsS https://init.19990617.xyz/init.sh); }' >> ~/.bashrc
     source ~/.bashrc
 fi
 
@@ -327,7 +327,7 @@ while true; do
             ;;
         00)
             echo "正在卸载此脚本..."
-            sed -i '/yohann() { bash <(curl -LsS https:\/\/blog.jvm.us.kg\/init.sh); }/d' ~/.bashrc
+            sed -i '/yohann() { bash <(curl -LsS https:\/\/init.19990617.xyz\/init.sh); }/d' ~/.bashrc
             sed -i '/source ~\/.bashrc/d' "$PROFILE_FILE"
             source ~/.bashrc
             source "$PROFILE_FILE"
