@@ -206,19 +206,15 @@ log_clean(){
     crontab /root/shell/cron.conf && crontab -l
 }
 
-install_add_docker() {
-    echo -e "${YELLOW}正在安装docker环境...${NC}"
-    
-    curl -fsSL https://get.docker.com | bash -s docker
-    curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    chmod +x /usr/local/bin/docker-compose
-}
-
-# 安装docker
+# 安装docker & docker-compose
 install_docker() {
     if ! command -v docker &>/dev/null; then
         clear
-        install_add_docker
+        echo -e "${YELLOW}正在安装docker环境...${NC}"
+        
+        curl -fsSL https://get.docker.com | bash -s docker
+        curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        chmod +x /usr/local/bin/docker-compose
         echo -e "${GREEN}Docker安装成功！${NC}"
     else
         echo -e "${GREEN}Docker环境已经安装${NC}"
