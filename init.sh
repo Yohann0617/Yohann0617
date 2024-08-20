@@ -283,14 +283,6 @@ disable_icmp() {
         iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
     fi
 
-    # 添加规则来丢弃所有ICMP流量（如果规则不存在）
-    if ! rule_exists INPUT "-p icmp -j DROP"; then
-        iptables -A INPUT -p icmp -j DROP
-    fi
-    if ! rule_exists OUTPUT "-p icmp -j DROP"; then
-        iptables -A OUTPUT -p icmp -j DROP
-    fi
-
     echo -e "${GREEN}系统的ICMP协议已禁用${NC}"
 }
 
