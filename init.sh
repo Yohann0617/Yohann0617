@@ -234,9 +234,9 @@ allow_icmp(){
     clear
     echo -e "${YELLOW}正在设置系统允许ICMP回显及应答...${NC}"
     # 允许ICMP回显请求（ping）
-    sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+    iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
     # 允许ICMP回显应答
-    sudo iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+    iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
     echo -e "${GREEN}设置系统允许ICMP回显及应答成功${NC}"
 }
 
@@ -283,7 +283,7 @@ while true; do
     echo -e "${WHITE}8)\tdocker安装甲骨文保活工具(lookbusy)${NC}"
     echo -e "${WHITE}9)\t设置定时日志清理任务${NC}"
     echo -e "${WHITE}10)\t安装docker和docker-compose${NC}"
-    echo -e "${WHITE}11)\t放行ICMP协议(允许ping)${NC}"
+    echo -e "${WHITE}11)\tiptables放行ICMP协议(允许ping)${NC}"
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
     echo "==========================================================="
