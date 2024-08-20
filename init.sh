@@ -210,14 +210,22 @@ log_clean(){
 install_docker() {
     if ! command -v docker &>/dev/null; then
         clear
-        echo -e "${YELLOW}正在安装docker环境...${NC}"
+        echo -e "${YELLOW}正在安装 Docker 环境...${NC}"
         
         curl -fsSL https://get.docker.com | bash -s docker
+        echo -e "${GREEN}Docker 安装成功！${NC}"
+    else
+        echo -e "${GREEN}Docker 环境已经安装${NC}"
+    fi
+    
+    if ! command -v docker-compose &>/dev/null; then
+        echo -e "${YELLOW}正在安装 Docker Compose...${NC}"
+        
         curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose
-        echo -e "${GREEN}Docker安装成功！${NC}"
+        echo -e "${GREEN}Docker Compose 安装成功！${NC}"
     else
-        echo -e "${GREEN}Docker环境已经安装${NC}"
+        echo -e "${GREEN}Docker Compose 已经安装${NC}"
     fi
 }
 
@@ -263,7 +271,7 @@ while true; do
     echo -e "${WHITE}7)\t安装Tab命令补全工具(bash-completion)${NC}"
     echo -e "${WHITE}8)\tdocker安装甲骨文保活工具(lookbusy)${NC}"
     echo -e "${WHITE}9)\t设置定时日志清理任务${NC}"
-    echo -e "${WHITE}10)\t安装Docker${NC}"
+    echo -e "${WHITE}10)\t安装docker和docker-compose${NC}"
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
     echo "==========================================================="
