@@ -230,14 +230,38 @@ install_docker() {
 }
 
 # 放行ICMP协议
-allow_icmp(){
+enable_icmp(){
     clear
-    echo -e "${YELLOW}正在设置系统允许ICMP回显及应答...${NC}"
+    echo -e "${YELLOW}正在开启系统的ICMP协议...${NC}"
+    
     # 允许ICMP回显请求（ping）
     iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
     # 允许ICMP回显应答
     iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
-    echo -e "${GREEN}设置系统允许ICMP回显及应答成功${NC}"
+    # 限制ICMP请求速率为每秒1个，最多允许突发5个
+    iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
+    # 丢弃超过速率限制的ICMP请求
+    iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+
+    echo -e "${GREEN}系统的ICMP协议已启用${NC}"
+}
+
+# 关闭ICMP协议
+disable_icmp(){
+    clear
+    echo -e "${YELLOW}正在禁用系统的ICMP协议...${NC}"
+
+    # 删除所有关于ICMP的规则
+    iptables -D INPUT -p icmp --icmp-type echo-request -j ACCEPT
+    iptables -D OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+    iptables -D INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
+    iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
+
+    # 添加规则来丢弃所有ICMP流量
+    iptables -A INPUT -p icmp -j DROP
+    iptables -A OUTPUT -p icmp -j DROP
+
+    echo -e "${GREEN}系统的ICMP协议已禁用${NC}"
 }
 
 # 定义颜色
@@ -284,6 +308,7 @@ while true; do
     echo -e "${WHITE}9)\t设置定时日志清理任务${NC}"
     echo -e "${WHITE}10)\t安装docker和docker-compose${NC}"
     echo -e "${WHITE}11)\tiptables放行ICMP协议(允许ping)${NC}"
+    echo -e "${WHITE}12)\tiptables关闭ICMP协议(不允许ping)${NC}"
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
     echo "==========================================================="
@@ -338,7 +363,11 @@ while true; do
             break
             ;;
         11)
-            allow_icmp
+            enable_icmp
+            break
+            ;;
+        12)
+            disable_icmp
             break
             ;;
         00)
