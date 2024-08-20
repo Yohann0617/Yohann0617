@@ -229,40 +229,71 @@ install_docker() {
     fi
 }
 
+# 检查规则是否已经存在
+rule_exists() {
+    local chain=$1
+    local rule=$2
+    iptables -C $chain $rule 2>/dev/null
+}
+
 # 放行ICMP协议
-enable_icmp(){
+enable_icmp() {
     clear
     echo -e "${YELLOW}正在开启系统的ICMP协议...${NC}"
     
-    # 允许ICMP回显请求（ping）
-    iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
-    # 允许ICMP回显应答
-    iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
-    # 限制ICMP请求速率为每秒1个，最多允许突发5个
-    iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
-    # 丢弃超过速率限制的ICMP请求
-    iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+    # 允许ICMP回显请求（ping），如果规则不存在
+    if ! rule_exists INPUT "-p icmp --icmp-type echo-request -j ACCEPT"; then
+        iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+    fi
+    
+    # 允许ICMP回显应答， 如果规则不存在
+    if ! rule_exists OUTPUT "-p icmp --icmp-type echo-reply -j ACCEPT"; then
+        iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+    fi
+
+    # 限制ICMP请求速率为每秒1个，最多允许突发5个，如果规则不存在
+    if ! rule_exists INPUT "-p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT"; then
+        iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
+    fi
+
+    # 丢弃超过速率限制的ICMP请求，如果规则不存在
+    if ! rule_exists INPUT "-p icmp --icmp-type echo-request -j DROP"; then
+        iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+    fi
 
     echo -e "${GREEN}系统的ICMP协议已启用${NC}"
 }
 
 # 关闭ICMP协议
-disable_icmp(){
+disable_icmp() {
     clear
     echo -e "${YELLOW}正在禁用系统的ICMP协议...${NC}"
 
-    # 删除所有关于ICMP的规则
-    iptables -D INPUT -p icmp --icmp-type echo-request -j ACCEPT
-    iptables -D OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
-    iptables -D INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
-    iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
+    # 删除允许ICMP的规则（如果存在）
+    if rule_exists INPUT "-p icmp --icmp-type echo-request -j ACCEPT"; then
+        iptables -D INPUT -p icmp --icmp-type echo-request -j ACCEPT
+    fi
+    if rule_exists OUTPUT "-p icmp --icmp-type echo-reply -j ACCEPT"; then
+        iptables -D OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+    fi
+    if rule_exists INPUT "-p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT"; then
+        iptables -D INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
+    fi
+    if rule_exists INPUT "-p icmp --icmp-type echo-request -j DROP"; then
+        iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
+    fi
 
-    # 添加规则来丢弃所有ICMP流量
-    iptables -A INPUT -p icmp -j DROP
-    iptables -A OUTPUT -p icmp -j DROP
+    # 添加规则来丢弃所有ICMP流量（如果规则不存在）
+    if ! rule_exists INPUT "-p icmp -j DROP"; then
+        iptables -A INPUT -p icmp -j DROP
+    fi
+    if ! rule_exists OUTPUT "-p icmp -j DROP"; then
+        iptables -A OUTPUT -p icmp -j DROP
+    fi
 
     echo -e "${GREEN}系统的ICMP协议已禁用${NC}"
 }
+
 
 # 定义颜色
 BLACK='\033[0;30m'
