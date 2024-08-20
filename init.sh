@@ -229,6 +229,17 @@ install_docker() {
     fi
 }
 
+# 放行ICMP协议
+allow_icmp(){
+    clear
+    echo -e "${YELLOW}正在设置系统允许ICMP回显及应答...${NC}"
+    # 允许ICMP回显请求（ping）
+    sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+    # 允许ICMP回显应答
+    sudo iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+    echo -e "${GREEN}设置系统允许ICMP回显及应答成功${NC}"
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -272,6 +283,7 @@ while true; do
     echo -e "${WHITE}8)\tdocker安装甲骨文保活工具(lookbusy)${NC}"
     echo -e "${WHITE}9)\t设置定时日志清理任务${NC}"
     echo -e "${WHITE}10)\t安装docker和docker-compose${NC}"
+    echo -e "${WHITE}11)\t放行ICMP协议(允许ping)${NC}"
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
     echo "==========================================================="
@@ -323,6 +335,10 @@ while true; do
             ;;
         10)
             install_docker
+            break
+            ;;
+        11)
+            allow_icmp
             break
             ;;
         00)
