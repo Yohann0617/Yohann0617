@@ -154,7 +154,6 @@ install_tab(){
     clear
     # 安装bash-complete
     $INSTALL_CMD bash-completion
-    install_docker
     # 刷新文件
     source /usr/share/bash-completion/completions/docker
     # 刷新文件
