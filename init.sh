@@ -184,7 +184,6 @@ install_oci_alive(){
 # 定时日志清理
 log_clean(){
     clear
-    install_docker
     mkdir -p /root/shell
     echo '#!/bin/bash
     cd /var/log
