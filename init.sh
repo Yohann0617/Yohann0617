@@ -152,13 +152,19 @@ upload_file() {
 # tab补全
 install_tab(){
     clear
-    # 安装bash-complete
+    # 设置ll别名
+    set_alias_ll
+    # 安装bash-completion
     $INSTALL_CMD bash-completion
-    # 刷新文件
-    source /usr/share/bash-completion/completions/docker
-    # 刷新文件
+    # 判断是否安装了docker
+    if command -v docker &> /dev/null; then
+        # 刷新docker的bash-completion文件
+        source /usr/share/bash-completion/completions/docker
+    fi
+    # 刷新bash-completion文件
     source /usr/share/bash-completion/bash_completion
 }
+
 
 # oce保活
 install_oci_alive(){
@@ -279,6 +285,19 @@ disable_icmp() {
     iptables -L -v -n --line-numbers
 }
 
+# ll
+set_alias_ll(){
+    # 设置别名 ll 为 ls -l
+    alias ll='ls -l'
+
+    # 将别名添加到 ~/.bashrc 中，以便在每次启动终端时自动加载
+    if ! grep -q "alias ll='ls -l'" ~/.bashrc; then
+        echo "alias ll='ls -l'" >> ~/.bashrc
+    fi
+
+    # 刷新当前shell环境，使别名立即生效
+    source ~/.bashrc
+}
 
 # 定义颜色
 BLACK='\033[0;30m'
@@ -313,18 +332,24 @@ while true; do
     echo -e "${WHITE}${NC}"
     echo -e "${CYAN}请选择一个操作：${NC}"
     echo "==========================================================="
-    echo -e "${GREEN}1)\t下载并运行 kejilion.sh${NC}"
-    echo -e "${YELLOW}2)\t下载并运行 XrayR 安装脚本${NC}"
-    echo -e "${WHITE}3)\t测速(bench.sh)${NC}"
+    echo -e "${GREEN}1)\t下载并运行 kejilion.sh⭐⭐${NC}"
+    echo -e "${YELLOW}2)\t下载并运行 XrayR 安装脚本⭐${NC}"
+    echo -e "${WHITE}3)\t测速(bench.sh)⭐${NC}"
     echo -e "${WHITE}4)\t部署或更新小雅影音库${NC}"
     echo -e "${WHITE}5)\t备份指定目录${NC}"
     echo -e "${WHITE}6)\t上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHITE}7)\t安装Tab命令补全工具(bash-completion)${NC}"
+    echo "==========================================================="
+    echo -e "${WHITE}7)\t安装Tab命令补全工具(bash-completion)⭐⭐${NC}"
     echo -e "${WHITE}8)\tdocker安装甲骨文保活工具(lookbusy)${NC}"
-    echo -e "${WHITE}9)\t设置定时日志清理任务${NC}"
+    echo -e "${WHITE}9)\t设置定时日志清理任务⭐⭐${NC}"
     echo -e "${WHITE}10)\t安装docker和docker-compose${NC}"
+    echo "==========================================================="
     echo -e "${WHITE}11)\tiptables放行ICMP协议(允许ping)${NC}"
     echo -e "${WHITE}12)\tiptables关闭ICMP协议(不允许ping)${NC}"
+    echo "==========================================================="
+    echo -e "${WHITE}13)\tygkkk四合一singbox一键脚本(不允许ping)${NC}"
+    echo -e "${WHITE}14)\tfscarmen一键脚本(不允许ping)${NC}"
+    echo "==========================================================="
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
     echo "==========================================================="
@@ -384,6 +409,14 @@ while true; do
             ;;
         12)
             disable_icmp
+            break
+            ;;
+        13)
+            bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
+            break
+            ;;
+        14)
+            bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
             break
             ;;
         00)
