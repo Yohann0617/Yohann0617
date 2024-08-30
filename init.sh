@@ -350,6 +350,8 @@ while true; do
     echo -e "${WHITE}13)\tygkkk四合一singbox节点搭建一键脚本${NC}"
     echo -e "${WHITE}14)\tfscarmen节点搭建一键脚本${NC}"
     echo "==========================================================="
+    echo -e "${WHITE}15)\t检查机器能否开设LXC容器${NC}"
+    echo "==========================================================="
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
     echo "==========================================================="
@@ -412,11 +414,18 @@ while true; do
             break
             ;;
         13)
+            clear
             bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
             break
             ;;
         14)
+            clear
             bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
+            break
+            ;;
+        15)
+            clear
+            bash <(wget -qO- --no-check-certificate https://raw.githubusercontent.com/oneclickvirt/lxd/main/scripts/pre_check.sh)
             break
             ;;
         00)
