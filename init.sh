@@ -299,6 +299,32 @@ set_alias_ll(){
     source ~/.bashrc
 }
 
+speedTest(){
+    while true; do
+        echo -e "${CYAN}请选择一个测速脚本：${NC}"
+        echo "==========================================================="
+        echo -e "${WHITE}1)\tbench.sh测速${NC}"
+        echo -e "${WHITE}2)\ttaier.sh大陆三网测速${NC}"
+        echo "==========================================================="
+        read -p "请输入选项 (例: 1):" choice
+
+        case $choice in
+            1)
+                wget -qO- bench.sh | bash
+                break
+                ;;
+            2)
+                bash <(curl -sL res.yserver.ink/taier.sh)
+                break
+                ;;
+            *)
+                clear
+                echo -e "${RED}无效的选项，请输入对应的数字${NC}"
+                ;;
+        esac
+    done
+}
+
 # 定义颜色
 BLACK='\033[0;30m'
 RED='\033[0;31m'
@@ -334,7 +360,7 @@ while true; do
     echo "==========================================================="
     echo -e "${GREEN}1)\t下载并运行 kejilion.sh⭐⭐${NC}"
     echo -e "${YELLOW}2)\t下载并运行 XrayR 安装脚本⭐${NC}"
-    echo -e "${WHITE}3)\t测速(bench.sh)⭐${NC}"
+    echo -e "${WHITE}3)\t测速⭐${NC}"
     echo -e "${WHITE}4)\t部署或更新小雅影音库${NC}"
     echo -e "${WHITE}5)\t备份指定目录${NC}"
     echo -e "${WHITE}6)\t上传文件到个人网盘(tgNetDisc)${NC}"
@@ -369,7 +395,7 @@ while true; do
             break
             ;;
         3)
-            wget -qO- bench.sh | bash
+            speedTest
             break
             ;;
         4)
