@@ -300,11 +300,12 @@ set_alias_ll(){
 }
 
 speed_test(){
+    clear
     while true; do
         echo -e "${CYAN}请选择一个测速脚本：${NC}"
         echo "==========================================================="
         echo -e "${WHITE}1)\tbench.sh测速${NC}"
-        echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(附加参数--interface eth0可指定网卡)${NC}"
+        echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(可指定网卡)${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -314,7 +315,9 @@ speed_test(){
                 break
                 ;;
             2)
-                bash <(curl -sL res.yserver.ink/taier.sh)
+                # 提示用户输入附加参数
+                read -p "请输入指定网卡 (可选，例: --interface eth0)，如不需要直接回车跳过: " params
+                bash <(curl -sL res.yserver.ink/taier.sh) $params
                 break
                 ;;
             *)
