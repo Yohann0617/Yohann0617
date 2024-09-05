@@ -299,12 +299,12 @@ set_alias_ll(){
     source ~/.bashrc
 }
 
-speedTest(){
+speed_test(){
     while true; do
         echo -e "${CYAN}请选择一个测速脚本：${NC}"
         echo "==========================================================="
         echo -e "${WHITE}1)\tbench.sh测速${NC}"
-        echo -e "${WHITE}2)\ttaier.sh大陆三网测速${NC}"
+        echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(附加参数--interface eth0可指定网卡)${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -395,7 +395,7 @@ while true; do
             break
             ;;
         3)
-            speedTest
+            speed_test
             break
             ;;
         4)
