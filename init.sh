@@ -305,7 +305,8 @@ speed_test(){
         echo -e "${CYAN}请选择一个测速脚本：${NC}"
         echo "==========================================================="
         echo -e "${WHITE}1)\tbench.sh测速${NC}"
-        echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(可指定网卡)${NC}"
+        echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
+        echo -e "${WHITE}3)\tIP解锁测试⭐${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -318,6 +319,10 @@ speed_test(){
                 # 提示用户输入附加参数
                 read -p "请输入指定网卡 (可选，例: --interface eth0)，如不需要直接回车跳过: " params
                 bash <(curl -sL res.yserver.ink/taier.sh) $params
+                break
+                ;;
+            3)
+                bash <(curl -L -s https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh)
                 break
                 ;;
             *)
@@ -363,7 +368,7 @@ while true; do
     echo "==========================================================="
     echo -e "${GREEN}1)\t下载并运行 kejilion.sh⭐⭐${NC}"
     echo -e "${YELLOW}2)\t下载并运行 XrayR 安装脚本⭐${NC}"
-    echo -e "${WHITE}3)\t测速⭐${NC}"
+    echo -e "${WHITE}3)\t测速/解锁测试⭐${NC}"
     echo -e "${WHITE}4)\t部署或更新小雅影音库${NC}"
     echo -e "${WHITE}5)\t备份指定目录${NC}"
     echo -e "${WHITE}6)\t上传文件到个人网盘(tgNetDisc)${NC}"
