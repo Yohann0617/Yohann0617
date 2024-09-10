@@ -302,11 +302,13 @@ set_alias_ll(){
 speed_test(){
     clear
     while true; do
-        echo -e "${CYAN}请选择一个测速脚本：${NC}"
+        echo -e "${CYAN}请选择一个一键搭建脚本：${NC}"
         echo "==========================================================="
         echo -e "${WHITE}1)\tbench.sh测速${NC}"
         echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
         echo -e "${WHITE}3)\tIP解锁测试⭐${NC}"
+        echo "==========================================================="
+        echo -e "${YELLOW}0)\t返回${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -323,6 +325,10 @@ speed_test(){
                 ;;
             3)
                 bash <(curl -L -s https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh)
+                break
+                ;;
+            0)
+                yohann
                 break
                 ;;
             *)
