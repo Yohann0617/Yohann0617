@@ -299,7 +299,7 @@ set_alias_ll(){
     source ~/.bashrc
 }
 
-speed_test(){
+check(){
     clear
     while true; do
         echo -e "${CYAN}请选择一个一键搭建脚本：${NC}"
@@ -307,6 +307,7 @@ speed_test(){
         echo -e "${WHITE}1)\tbench.sh测速${NC}"
         echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
         echo -e "${WHITE}3)\tIP解锁测试⭐${NC}"
+        echo -e "${WHITE}4)\t检查机器能否开设LXC容器${NC}"
         echo "==========================================================="
         echo -e "${YELLOW}0)\t返回${NC}"
         echo "==========================================================="
@@ -325,6 +326,53 @@ speed_test(){
                 ;;
             3)
                 bash <(curl -L -s https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh)
+                break
+                ;;
+            4)
+                clear
+                bash <(wget -qO- --no-check-certificate https://raw.githubusercontent.com/oneclickvirt/lxd/main/scripts/pre_check.sh)
+                break
+                ;;
+            0)
+                source <(curl -LsS https://init.19990617.xyz/init.sh)
+                break
+                ;;
+            *)
+                clear
+                echo -e "${RED}无效的选项，请输入对应的数字${NC}"
+                ;;
+        esac
+    done
+}
+
+# 一键搭建节点
+one_click_node(){
+    clear
+    while true; do
+        echo -e "${CYAN}请选择一个一键搭建脚本：${NC}"
+        echo "==========================================================="
+        echo -e "${WHITE}1)\tygkkk四合一singbox节点搭建一键脚本${NC}"
+        echo -e "${WHITE}2)\tfscarmen节点搭建一键脚本${NC}"
+        echo -e "${WHITE}3)\tbaipiao节点搭建一键脚本${NC}"
+        echo "==========================================================="
+        echo -e "${YELLOW}0)\t返回${NC}"
+        echo "==========================================================="
+        read -p "请输入选项 (例: 1):" choice
+
+        case $choice in
+            1)
+                clear
+                bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
+                break
+                ;;
+            2)
+                clear
+                bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
+                break
+                ;;
+            3)
+                clear
+                bash <(wget -qO- https://www.baipiao.eu.org/suoha.sh)
                 break
                 ;;
             0)
@@ -387,10 +435,7 @@ while true; do
     echo -e "${WHITE}11)\tiptables放行ICMP协议(允许ping)${NC}"
     echo -e "${WHITE}12)\tiptables关闭ICMP协议(不允许ping)${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}13)\tygkkk四合一singbox节点搭建一键脚本${NC}"
-    echo -e "${WHITE}14)\tfscarmen节点搭建一键脚本${NC}"
-    echo "==========================================================="
-    echo -e "${WHITE}15)\t检查机器能否开设LXC容器${NC}"
+    echo -e "${WHITE}13)\t节点搭建一键脚本${NC}"
     echo "==========================================================="
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
@@ -409,7 +454,7 @@ while true; do
             break
             ;;
         3)
-            speed_test
+            check
             break
             ;;
         4)
@@ -455,17 +500,7 @@ while true; do
             ;;
         13)
             clear
-            bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
-            break
-            ;;
-        14)
-            clear
-            bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
-            break
-            ;;
-        15)
-            clear
-            bash <(wget -qO- --no-check-certificate https://raw.githubusercontent.com/oneclickvirt/lxd/main/scripts/pre_check.sh)
+            one_click_node
             break
             ;;
         00)
