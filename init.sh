@@ -302,12 +302,12 @@ set_alias_ll(){
 check(){
     clear
     while true; do
-        echo -e "${CYAN}请选择一个一键搭建脚本：${NC}"
+        echo -e "${CYAN}请选择一个测试脚本：${NC}"
         echo "==========================================================="
         echo -e "${WHITE}1)\tbench.sh测速${NC}"
         echo -e "${WHITE}2)\ttaier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
         echo -e "${WHITE}3)\tIP解锁测试⭐${NC}"
-        echo -e "${WHITE}4)\t检查机器能否开设LXC容器${NC}"
+        echo -e "${WHITE}4)\t测试机器能否开设LXC容器${NC}"
         echo "==========================================================="
         echo -e "${YELLOW}0)\t返回${NC}"
         echo "==========================================================="
