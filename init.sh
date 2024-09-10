@@ -63,6 +63,10 @@ case "$OS" in
         INSTALL_CMD="yum install -y"
         UPDATE_CMD="yum update"
         ;;
+    alpine)
+        INSTALL_CMD="apk add --no-cache"
+        UPDATE_CMD="apk update"
+        ;;
     *)
         echo "Unsupported OS: $OS"
         exit 1
