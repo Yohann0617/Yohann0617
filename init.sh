@@ -456,6 +456,7 @@ banner=$(cat << 'EOF'
                     © 2024 Yohann. All Rights Reserved
                 
 - 系统初始化快捷脚本，输入 yohann 可快速启动此脚本
+- 系统推荐Debian、Ubuntu、Centos，其他系统暂未测试
 - 部分工具安装完之后需 重新打开终端 才生效哦~
 EOF
 )
