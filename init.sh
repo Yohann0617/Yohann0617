@@ -71,6 +71,7 @@ esac
 
 # 备份
 backup_directory() {
+    $INSTALL_CMD rsync
     clear
     # 提示用户输入需要备份的目录
     read -p "请输入需要备份的目录: " source_dir
