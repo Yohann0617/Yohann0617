@@ -233,6 +233,47 @@ install_docker() {
     fi
 }
 
+docker_relate(){
+    clear
+    while true; do
+        echo -e "${CYAN}请选择一个docker操作：${NC}"
+        echo "==========================================================="
+        echo -e "${WHITE}1)\t安装docker和docker-compose${NC}"
+        echo -e "${WHITE}2)\tdocker部署甲骨文保活工具(lookbusy)${NC}"
+        echo -e "${WHITE}3)\tdocker部署或更新小雅影音库${NC}"
+        echo "==========================================================="
+        echo -e "${YELLOW}0)\t返回${NC}"
+        echo "==========================================================="
+        read -p "请输入选项 (例: 1):" choice
+
+        case $choice in
+            1)
+                install_docker
+                break
+                ;;
+            2)
+                echo "正在安装甲骨文保活工具(lookbusy)..."
+                install_oci_alive
+                break
+                ;;
+            3)
+                echo "正在部署或更新小雅影音库..."
+                bash -c "$(curl -fsSL https://raw.githubusercontent.com/monlor/docker-xiaoya/main/install.sh)"
+                break
+                ;;
+            0)
+                clear
+                source <(curl -LsS https://init.19990617.xyz/init.sh)
+                break
+                ;;
+            *)
+                clear
+                echo -e "${RED}无效的选项，请输入对应的数字${NC}"
+                ;;
+        esac
+    done
+}
+
 # 检查规则是否已经存在
 rule_exists() {
     local chain=$1
@@ -423,19 +464,18 @@ while true; do
     echo -e "${GREEN}1)\t下载并运行 kejilion.sh⭐⭐${NC}"
     echo -e "${YELLOW}2)\t下载并运行 XrayR 安装脚本⭐${NC}"
     echo -e "${WHITE}3)\t测速/解锁测试⭐${NC}"
-    echo -e "${WHITE}4)\t部署或更新小雅影音库${NC}"
-    echo -e "${WHITE}5)\t备份指定目录${NC}"
-    echo -e "${WHITE}6)\t上传文件到个人网盘(tgNetDisc)${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}7)\t安装Tab命令补全工具(bash-completion)⭐⭐${NC}"
-    echo -e "${WHITE}8)\tdocker安装甲骨文保活工具(lookbusy)${NC}"
-    echo -e "${WHITE}9)\t设置定时日志清理任务⭐⭐${NC}"
-    echo -e "${WHITE}10)\t安装docker和docker-compose${NC}"
+    echo -e "${WHITE}4)\t安装Tab命令补全工具(bash-completion)⭐⭐${NC}"
+    echo -e "${WHITE}5)\t设置定时日志清理任务⭐⭐${NC}"
+    echo -e "${WHITE}6)\t备份指定目录${NC}"
+    echo -e "${WHITE}7)\t上传文件到个人网盘(tgNetDisc)${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}11)\tiptables放行ICMP协议(允许ping)${NC}"
-    echo -e "${WHITE}12)\tiptables关闭ICMP协议(不允许ping)${NC}"
+    echo -e "${WHITE}8)\tDocker相关${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}13)\t节点搭建一键脚本${NC}"
+    echo -e "${WHITE}9)\tiptables放行ICMP协议(允许ping)${NC}"
+    echo -e "${WHITE}10)\tiptables关闭ICMP协议(不允许ping)${NC}"
+    echo "==========================================================="
+    echo -e "${WHITE}11)\t节点搭建一键脚本${NC}"
     echo "==========================================================="
     echo -e "${PURPLE}00)\t卸载此脚本${NC}"
     echo -e "${RED}0)\t退出${NC}"
@@ -458,48 +498,37 @@ while true; do
             break
             ;;
         4)
-            echo "正在部署或更新小雅影音库..."
-            bash -c "$(curl -fsSL https://raw.githubusercontent.com/monlor/docker-xiaoya/main/install.sh)"
-            break
-            ;;
-        5)
-            backup_directory
-            break
-            ;;
-        6)
-            upload_file
-            break
-            ;;
-        7)
             echo "正在安装Tab命令补全工具(bash-completion)..."
             install_tab
             break
             ;;
-        8)
-            echo "正在安装甲骨文保活工具(lookbusy)..."
-            install_oci_alive
-            break
-            ;;
-        9)
+        5)
             echo "正在设置定时日志清理任务..."
             log_clean
             echo "定时日志清理任务设置成功！"
             break
             ;;
-        10)
-            install_docker
+        6)
+            backup_directory
             break
             ;;
-        11)
+        7)
+            upload_file
+            break
+            ;;
+        8)
+            docker_relate
+            break
+            ;;
+        9)
             enable_icmp
             break
             ;;
-        12)
+        10)
             disable_icmp
             break
             ;;
-        13)
-            clear
+        11)
             one_click_node
             break
             ;;
