@@ -11,20 +11,27 @@
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Yohann0617&column=-1)](https://github.com/Yohann0617/github-profile-trophy)
 
-<img align="right" src="https://github-readme-stats.vercel.app/api?username=Yohann0617&show_icons=true&icon_color=blue&text_color=718096&bg_color=ffffff&hide_title=true" />
-
-### Hi👋 It's Yohann
-- 📖 I graduated from Suzhou University of Science and Technology in June 2022
-- 🔭 I’m currently working at Shanghai ViewSources
-- 😄 Thank you for your attention
+<table >
+  <tr>
+    <td>
+      <h3>Hi👋 It's Yohann</h3>
+      <ul>
+        <li>📖 I graduated from Suzhou University of Science and Technology in June 2022</li>
+        <li>🔭 I’m currently working at Shanghai ViewSources</li>
+        <li>😄 Thank you for your attention</li>
+      </ul>
+    </td>
+    <td>
+      <img src="https://github-readme-stats.vercel.app/api?username=Yohann0617&show_icons=true&icon_color=blue&text_color=718096&bg_color=ffffff&hide_title=true" />
+    </td>
+  </tr>
+</table>
 
 ### ![Yohann's github activity graph](https://raw.githubusercontent.com/Yohann0617/Yohann0617/output/github-contribution-grid-snake.svg)
 
 ### 🎵 Music I'm listening to recently
 
 ![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31nwdje3btitlnljdf3en2wrcl2u&width=1000&count=5)
-
-
 
 <details>
     <summary> ☜ Read more 👨‍💻</summary>
