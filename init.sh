@@ -243,11 +243,11 @@ docker_relate(){
     while true; do
         echo -e "${CYAN}请选择一个docker操作：${NC}"
         echo "==========================================================="
-        echo -e "${WHITE}1)\t安装docker和docker-compose${NC}"
-        echo -e "${WHITE}2)\tdocker部署甲骨文保活工具(lookbusy)${NC}"
-        echo -e "${WHITE}3)\tdocker部署或更新小雅影音库${NC}"
+        echo -e "${WHITE}1)  安装docker和docker-compose${NC}"
+        echo -e "${WHITE}2)  docker部署甲骨文保活工具(lookbusy)${NC}"
+        echo -e "${WHITE}3)  docker部署或更新小雅影音库${NC}"
         echo "==========================================================="
-        echo -e "${YELLOW}0)\t返回${NC}"
+        echo -e "${YELLOW}0)  返回${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
