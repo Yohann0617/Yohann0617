@@ -397,11 +397,12 @@ one_click_node(){
     while true; do
         echo -e "${CYN}请选择一个一键搭建脚本：${NC}"
         echo "==========================================================="
-        echo -e "${WHT}1)  ygkkk四合一singbox节点搭建一键脚本${NC}"
-        echo -e "${WHT}2)  fscarmen节点搭建一键脚本${NC}"
-        echo -e "${WHT}3)  baipiao节点搭建一键脚本${NC}"
+        echo -e "${WHT}1)  FranzKafkaYu修改版X-UI一键脚本⭐${NC}"
+        echo -e "${WHT}2)  ygkkk四合一singbox节点搭建一键脚本${NC}"
+        echo -e "${WHT}3)  fscarmen节点搭建一键脚本${NC}"
+        echo -e "${WHT}4)  baipiao节点搭建一键脚本${NC}"
         echo "==========================================================="
-        echo -e "${GRN}4)  FranzKafkaYu修改版X-UI一键脚本${NC}"
+        echo -e "${WHT}5)  Multi-EasyGost中转一键脚本⭐${NC}"
         echo "==========================================================="
         echo -e "${YEW}0)  返回${NC}"
         echo "==========================================================="
@@ -410,22 +411,27 @@ one_click_node(){
         case $choice in
             1)
                 clear
-                bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
+                bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
                 break
                 ;;
             2)
                 clear
-                bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
+                bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
                 break
                 ;;
             3)
                 clear
-                bash <(wget -qO- https://www.baipiao.eu.org/suoha.sh)
+                bash <(wget -qO- https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh)
                 break
                 ;;
             4)
                 clear
-                bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
+                bash <(wget -qO- https://www.baipiao.eu.org/suoha.sh)
+                break
+                ;;
+            5)
+                clear
+                bash <(wget -qO- https://raw.githubusercontent.com/KANIKIG/Multi-EasyGost/master/gost.sh)
                 break
                 ;;
             0)
@@ -485,7 +491,7 @@ while true; do
     echo -e "${WHT}9)  iptables放行ICMP协议(允许ping)${NC}"
     echo -e "${WHT}10) iptables关闭ICMP协议(不允许ping)${NC}"
     echo "==========================================================="
-    echo -e "${WHT}11) 节点搭建一键脚本${NC}"
+    echo -e "${WHT}11) 节点搭建/中转一键脚本${NC}"
     echo "==========================================================="
     echo -e "${PUP}00) 卸载此脚本${NC}"
     echo -e "${RED}0)  退出${NC}"
