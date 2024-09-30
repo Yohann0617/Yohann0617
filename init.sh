@@ -401,6 +401,8 @@ one_click_node(){
         echo -e "${WHITE}2)\tfscarmen节点搭建一键脚本${NC}"
         echo -e "${WHITE}3)\tbaipiao节点搭建一键脚本${NC}"
         echo "==========================================================="
+        echo -e "${GREEN}4)\tFranzKafkaYu修改版X-UI一键脚本${NC}"
+        echo "==========================================================="
         echo -e "${YELLOW}0)\t返回${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
@@ -419,6 +421,11 @@ one_click_node(){
             3)
                 clear
                 bash <(wget -qO- https://www.baipiao.eu.org/suoha.sh)
+                break
+                ;;
+            4)
+                clear
+                bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
                 break
                 ;;
             0)
