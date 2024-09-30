@@ -219,35 +219,35 @@ log_clean(){
 install_docker() {
     if ! command -v docker &>/dev/null; then
         clear
-        echo -e "${YELLOW}正在安装 Docker 环境...${NC}"
+        echo -e "${YEW}正在安装 Docker 环境...${NC}"
         
         curl -fsSL https://get.docker.com | bash -s docker
-        echo -e "${GREEN}Docker 安装成功！${NC}"
+        echo -e "${GRN}Docker 安装成功！${NC}"
     else
-        echo -e "${GREEN}Docker 环境已经安装${NC}"
+        echo -e "${GRN}Docker 环境已经安装${NC}"
     fi
     
     if ! command -v docker-compose &>/dev/null; then
-        echo -e "${YELLOW}正在安装 Docker Compose...${NC}"
+        echo -e "${YEW}正在安装 Docker Compose...${NC}"
         
         curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         chmod +x /usr/local/bin/docker-compose
-        echo -e "${GREEN}Docker Compose 安装成功！${NC}"
+        echo -e "${GRN}Docker Compose 安装成功！${NC}"
     else
-        echo -e "${GREEN}Docker Compose 已经安装${NC}"
+        echo -e "${GRN}Docker Compose 已经安装${NC}"
     fi
 }
 
 docker_relate(){
     clear
     while true; do
-        echo -e "${CYAN}请选择一个docker操作：${NC}"
+        echo -e "${CYN}请选择一个docker操作：${NC}"
         echo "==========================================================="
-        echo -e "${WHITE}1)  安装docker和docker-compose${NC}"
-        echo -e "${WHITE}2)  docker部署甲骨文保活工具(lookbusy)${NC}"
-        echo -e "${WHITE}3)  docker部署或更新小雅影音库${NC}"
+        echo -e "${WHT}1)  安装docker和docker-compose${NC}"
+        echo -e "${WHT}2)  docker部署甲骨文保活工具(lookbusy)${NC}"
+        echo -e "${WHT}3)  docker部署或更新小雅影音库${NC}"
         echo "==========================================================="
-        echo -e "${YELLOW}0)  返回${NC}"
+        echo -e "${YEW}0)  返回${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -289,7 +289,7 @@ rule_exists() {
 # 放行ICMP协议
 enable_icmp() {
     clear
-    echo -e "${YELLOW}正在开启系统的ICMP协议...${NC}"
+    echo -e "${YEW}正在开启系统的ICMP协议...${NC}"
     # 允许ICMP回显请求（ping），如果规则不存在
     if ! rule_exists INPUT "-p icmp --icmp-type echo-request -j ACCEPT"; then
         iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
@@ -306,14 +306,14 @@ enable_icmp() {
     if ! rule_exists INPUT "-p icmp --icmp-type echo-request -j DROP"; then
         iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
     fi
-    echo -e "${GREEN}系统的ICMP协议已启用${NC}"
+    echo -e "${GRN}系统的ICMP协议已启用${NC}"
     iptables -L -v -n --line-numbers
 }
 
 # 关闭ICMP协议
 disable_icmp() {
     clear
-    echo -e "${YELLOW}正在禁用系统的ICMP协议...${NC}"
+    echo -e "${YEW}正在禁用系统的ICMP协议...${NC}"
     # 删除允许ICMP的规则（如果存在）
     if rule_exists INPUT "-p icmp --icmp-type echo-request -j ACCEPT"; then
         iptables -D INPUT -p icmp --icmp-type echo-request -j ACCEPT
@@ -327,7 +327,7 @@ disable_icmp() {
     if rule_exists INPUT "-p icmp --icmp-type echo-request -j DROP"; then
         iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
     fi
-    echo -e "${GREEN}系统的ICMP协议已禁用${NC}"
+    echo -e "${GRN}系统的ICMP协议已禁用${NC}"
     iptables -L -v -n --line-numbers
 }
 
@@ -348,14 +348,14 @@ set_alias_ll(){
 check(){
     clear
     while true; do
-        echo -e "${CYAN}请选择一个测试脚本：${NC}"
+        echo -e "${CYN}请选择一个测试脚本：${NC}"
         echo "==========================================================="
-        echo -e "${WHITE}1)  bench.sh测速${NC}"
-        echo -e "${WHITE}2)  taier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
-        echo -e "${WHITE}3)  IP解锁测试⭐${NC}"
-        echo -e "${WHITE}4)  测试机器能否开设LXC容器${NC}"
+        echo -e "${WHT}1)  bench.sh测速${NC}"
+        echo -e "${WHT}2)  taier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
+        echo -e "${WHT}3)  IP解锁测试⭐${NC}"
+        echo -e "${WHT}4)  测试机器能否开设LXC容器${NC}"
         echo "==========================================================="
-        echo -e "${YELLOW}0)  返回${NC}"
+        echo -e "${YEW}0)  返回${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -395,15 +395,15 @@ check(){
 one_click_node(){
     clear
     while true; do
-        echo -e "${CYAN}请选择一个一键搭建脚本：${NC}"
+        echo -e "${CYN}请选择一个一键搭建脚本：${NC}"
         echo "==========================================================="
-        echo -e "${WHITE}1)  ygkkk四合一singbox节点搭建一键脚本${NC}"
-        echo -e "${WHITE}2)  fscarmen节点搭建一键脚本${NC}"
-        echo -e "${WHITE}3)  baipiao节点搭建一键脚本${NC}"
+        echo -e "${WHT}1)  ygkkk四合一singbox节点搭建一键脚本${NC}"
+        echo -e "${WHT}2)  fscarmen节点搭建一键脚本${NC}"
+        echo -e "${WHT}3)  baipiao节点搭建一键脚本${NC}"
         echo "==========================================================="
-        echo -e "${GREEN}4)  FranzKafkaYu修改版X-UI一键脚本${NC}"
+        echo -e "${GRN}4)  FranzKafkaYu修改版X-UI一键脚本${NC}"
         echo "==========================================================="
-        echo -e "${YELLOW}0)  返回${NC}"
+        echo -e "${YEW}0)  返回${NC}"
         echo "==========================================================="
         read -p "请输入选项 (例: 1):" choice
 
@@ -441,14 +441,14 @@ one_click_node(){
 }
 
 # 定义颜色
-BLACK='\033[0;30m'
+BLK='\033[0;30m'
 RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-WHITE='\033[0;37m'
+GRN='\033[0;32m'
+YEW='\033[0;33m'
+BLU='\033[0;34m'
+PUP='\033[0;35m'
+CYN='\033[0;36m'
+WHT='\033[0;37m'
 NC='\033[0m' # 没有颜色
 
 # 使用cat命令和重定向定义多行字符串
@@ -470,24 +470,24 @@ EOF
 
 while true; do
     # 打印banner
-    echo -e "${GREEN}$banner${NC}"
-    echo -e "${WHITE}${NC}"
-    echo -e "${CYAN}请选择一个操作：${NC}"
+    echo -e "${GRN}$banner${NC}"
+    echo -e "${WHT}${NC}"
+    echo -e "${CYN}请选择一个操作：${NC}"
     echo "==========================================================="
-    echo -e "${GREEN}1)  下载并运行 kejilion.sh⭐⭐          ${WHITE}6)  备份指定目录${NC}"
-    echo -e "${YELLOW}2)  下载并运行 XrayR 安装脚本⭐         ${WHITE}7)  上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHITE}3)  测速/解锁测试⭐${NC}"
-    echo -e "${WHITE}4)  安装Tab命令补全工具⭐⭐${NC}"
-    echo -e "${WHITE}5)  设置定时日志清理任务⭐⭐${NC}"
+    echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐          ${WHT}6)  备份指定目录${NC}"
+    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐          ${WHT}7)  上传文件到个人网盘(tgNetDisc)${NC}"
+    echo -e "${WHT}3)  测速/解锁测试⭐${NC}"
+    echo -e "${WHT}4)  安装Tab命令补全工具⭐⭐${NC}"
+    echo -e "${WHT}5)  设置定时日志清理任务⭐⭐${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}8)  Docker相关${NC}"
+    echo -e "${WHT}8)  Docker相关${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}9)  iptables放行ICMP协议(允许ping)${NC}"
-    echo -e "${WHITE}10) iptables关闭ICMP协议(不允许ping)${NC}"
+    echo -e "${WHT}9)  iptables放行ICMP协议(允许ping)${NC}"
+    echo -e "${WHT}10) iptables关闭ICMP协议(不允许ping)${NC}"
     echo "==========================================================="
-    echo -e "${WHITE}11) 节点搭建一键脚本${NC}"
+    echo -e "${WHT}11) 节点搭建一键脚本${NC}"
     echo "==========================================================="
-    echo -e "${PURPLE}00) 卸载此脚本${NC}"
+    echo -e "${PUP}00) 卸载此脚本${NC}"
     echo -e "${RED}0)  退出${NC}"
     echo "==========================================================="
     read -p "请输入选项 (例: 1):" choice
@@ -549,7 +549,7 @@ while true; do
             source ~/.bashrc
             source "$PROFILE_FILE"
             clear
-            echo -e "${GREEN}脚本已成功卸载，请勿再执行 yohann 命令，重新打开终端即可${NC}"
+            echo -e "${GRN}脚本已成功卸载，请勿再执行 yohann 命令，重新打开终端即可${NC}"
             break
             ;;
         0)
