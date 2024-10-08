@@ -243,9 +243,12 @@ docker_relate(){
     while true; do
         echo -e "${CYN}请选择一个docker操作：${NC}"
         echo "==========================================================="
-        echo -e "${WHT}1)  安装docker和docker-compose${NC}"
+        echo -e "${WHT}1)  安装docker和docker-compose⭐${NC}"
         echo -e "${WHT}2)  docker部署甲骨文保活工具(lookbusy)${NC}"
         echo -e "${WHT}3)  docker部署或更新小雅影音库${NC}"
+        echo "==========================================================="
+        echo -e "${WHT}10) 清除标签为<none>的镜像${NC}"
+        echo -e "${WHT}11) 清除没有运行容器的镜像${NC}"
         echo "==========================================================="
         echo -e "${YEW}0)  返回${NC}"
         echo "==========================================================="
@@ -264,6 +267,16 @@ docker_relate(){
             3)
                 echo "正在部署或更新小雅影音库..."
                 bash -c "$(curl -fsSL https://raw.githubusercontent.com/monlor/docker-xiaoya/main/install.sh)"
+                break
+                ;;
+            10)
+                echo "正在清除标签为<none>的镜像..."
+                docker rmi $(docker images -f "dangling=true" -q)
+                break
+                ;;
+            11)
+                echo "正在清除没有运行容器的镜像..."
+                docker image prune -a -f
                 break
                 ;;
             0)
