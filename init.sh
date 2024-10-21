@@ -211,7 +211,7 @@ log_clean(){
     echo "==================== end clean docker containers logs   =========================="' > /root/shell/clean_log.sh
     
     chmod +x /root/shell/clean_log.sh
-    echo "0 * * * * /root/shell/clean_log.sh > /dev/null 2>&1" > /root/shell/cron.conf
+    echo "0 0 * * * /root/shell/clean_log.sh > /dev/null 2>&1" > /root/shell/cron.conf
     crontab /root/shell/cron.conf && crontab -l
 }
 
