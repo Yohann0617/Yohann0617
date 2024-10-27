@@ -56,6 +56,7 @@
 |  ✈️ build airplane panel | [Xboard](https://github.com/Yohann0617/Xboard-airplane) |
 |  ✈️ deploy XrayR with docker | [deploy XrayR with docker](https://github.com/Yohann0617/XrayR) |
 |  🛩️ a Xray backend framework that can easily support many panels | [XrayR](https://github.com/Yohann0617/XrayR-release) |
+|  🛩️ A V2board node server based on multi core, modified from XrayR | [V2bx](https://github.com/Yohann0617/V2bX) |
 |  📃 private repository | [Yohann's private repository](https://github.com/Yohann0617/private) |
 
 <br>
