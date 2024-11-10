@@ -493,18 +493,18 @@ while true; do
     echo -e "${WHT}${NC}"
     echo -e "${CYN}请选择一个操作：${NC}"
     echo "==========================================================="
-    echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  备份指定目录${NC}"
-    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHT}3)  测速/解锁测试⭐${NC}"
-    echo -e "${WHT}4)  安装Tab命令补全工具⭐⭐${NC}"
-    echo -e "${WHT}5)  设置定时日志清理任务⭐⭐${NC}"
+    echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  设置定时日志清理任务⭐⭐${NC}"
+    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  备份指定目录${NC}"
+    echo -e "${WHT}3)  下载并运行 V2bX 安装脚本⭐\t\t${WHT}8)  上传文件到个人网盘(tgNetDisc)${NC}"
+    echo -e "${WHT}4)  测速/解锁测试⭐${NC}"
+    echo -e "${WHT}5)  安装Tab命令补全工具⭐⭐${NC}"
     echo "==========================================================="
-    echo -e "${WHT}8)  Docker相关${NC}"
+    echo -e "${WHT}9)  Docker相关${NC}"
     echo "==========================================================="
-    echo -e "${WHT}9)  iptables放行ICMP协议${NC}"
-    echo -e "${WHT}10) iptables关闭ICMP协议${NC}"
+    echo -e "${WHT}10)  iptables放行ICMP协议${NC}"
+    echo -e "${WHT}11) iptables关闭ICMP协议${NC}"
     echo "==========================================================="
-    echo -e "${WHT}11) 节点搭建/中转一键脚本${NC}"
+    echo -e "${WHT}12) 节点搭建/中转一键脚本${NC}"
     echo "==========================================================="
     echo -e "${PUP}00) 卸载此脚本${NC}"
     echo -e "${RED}0)  退出${NC}"
@@ -523,41 +523,46 @@ while true; do
             break
             ;;
         3)
-            check
+            echo "正在下载并运行 V2bX 安装脚本..."
+            wget -N https://raw.githubusercontent.com/wyx2685/V2bX-script/master/install.sh && bash install.sh
             break
             ;;
         4)
+            check
+            break
+            ;;
+        5)
             echo "正在安装Tab命令补全工具(bash-completion)..."
             install_tab
             break
             ;;
-        5)
+        6)
             echo "正在设置定时日志清理任务..."
             log_clean
             echo "定时日志清理任务设置成功！"
             break
             ;;
-        6)
+        7)
             backup_directory
             break
             ;;
-        7)
+        8)
             upload_file
             break
             ;;
-        8)
+        9)
             docker_relate
             break
             ;;
-        9)
+        10)
             enable_icmp
             break
             ;;
-        10)
+        11)
             disable_icmp
             break
             ;;
-        11)
+        12)
             one_click_node
             break
             ;;
