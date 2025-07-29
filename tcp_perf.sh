@@ -42,8 +42,18 @@ MENU_OPTIONS+=("quit")
 
 # 用户选择
 while true; do
-    read -rp "#? " choice
-    if [[ "$choice" =~ ^[0-9]+$ ]] && ((choice >= 1 && choice <= ${#MENU_OPTIONS[@]})); then
+    read -rp "#?（直接回车默认选择 cake） " choice
+    if [[ -z "$choice" ]]; then
+        if [[ " ${AVAILABLE_QDISCS[*]} " == *" cake "* ]]; then
+            qdisc="cake"
+            echo "✅ 默认选择：cake"
+            echo "📘 说明：${QDISC_REMARKS[$qdisc]}"
+            break
+        else
+            echo "⚠️ 系统不支持 cake，不能默认选择，请手动选择"
+            continue
+        fi
+    elif [[ "$choice" =~ ^[0-9]+$ ]] && ((choice >= 1 && choice <= ${#MENU_OPTIONS[@]})); then
         selected="${MENU_OPTIONS[$((choice - 1))]}"
         if [[ "$selected" == "quit" ]]; then
             echo "❌ 已取消操作"
