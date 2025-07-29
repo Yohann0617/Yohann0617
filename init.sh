@@ -496,15 +496,15 @@ while true; do
     echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  设置定时日志清理任务⭐⭐${NC}"
     echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  备份指定目录${NC}"
     echo -e "${YEW}3)  下载并运行 V2bX 安装脚本⭐\t\t${WHT}8)  上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHT}4)  测速/解锁测试⭐${NC}"
+    echo -e "${WHT}4)  测速/解锁测试⭐\t\t${WHT}9)  TCP调优${NC}"
     echo -e "${WHT}5)  安装Tab命令补全工具⭐⭐${NC}"
     echo "==========================================================="
-    echo -e "${WHT}9)  Docker相关${NC}"
+    echo -e "${WHT}10)  Docker相关${NC}"
     echo "==========================================================="
-    echo -e "${WHT}10) iptables放行ICMP协议${NC}"
-    echo -e "${WHT}11) iptables关闭ICMP协议${NC}"
+    echo -e "${WHT}11) iptables放行ICMP协议${NC}"
+    echo -e "${WHT}12) iptables关闭ICMP协议${NC}"
     echo "==========================================================="
-    echo -e "${WHT}12) 节点搭建/中转一键脚本${NC}"
+    echo -e "${WHT}13) 节点搭建/中转一键脚本${NC}"
     echo "==========================================================="
     echo -e "${PUP}00) 卸载此脚本${NC}"
     echo -e "${RED}0)  退出${NC}"
@@ -551,18 +551,22 @@ while true; do
             break
             ;;
         9)
-            docker_relate
+            bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/tcp_perf.sh)
             break
             ;;
         10)
-            enable_icmp
+            docker_relate
             break
             ;;
         11)
-            disable_icmp
+            enable_icmp
             break
             ;;
         12)
+            disable_icmp
+            break
+            ;;
+        13)
             one_click_node
             break
             ;;
