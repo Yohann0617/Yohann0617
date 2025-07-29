@@ -3,8 +3,8 @@
 clear
 
 # 检查 ~/.bashrc 中是否已存在 yohann 函数定义
-if ! grep -qxF 'yohann() { bash <(curl -LsS https://init.19990617.xyz/init.sh); }' ~/.bashrc; then
-    echo 'yohann() { bash <(curl -LsS https://init.19990617.xyz/init.sh); }' >> ~/.bashrc
+if ! grep -qxF 'yohann() { bash <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh); }' ~/.bashrc; then
+    echo 'yohann() { bash <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh); }' >> ~/.bashrc
     source ~/.bashrc
 fi
 
@@ -281,7 +281,7 @@ docker_relate(){
                 ;;
             0)
                 clear
-                source <(curl -LsS https://init.19990617.xyz/init.sh)
+                source <(curl -LsS /init.sh)
                 break
                 ;;
             *)
@@ -393,7 +393,7 @@ check(){
                 break
                 ;;
             0)
-                source <(curl -LsS https://init.19990617.xyz/init.sh)
+                source <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh)
                 break
                 ;;
             *)
@@ -448,7 +448,7 @@ one_click_node(){
                 break
                 ;;
             0)
-                source <(curl -LsS https://init.19990617.xyz/init.sh)
+                source <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh)
                 break
                 ;;
             *)
