@@ -529,6 +529,7 @@ common_op(){
                 break
                 ;;
             4)
+                clear
                 bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/shell/refs/heads/master/get_main_ip.sh)
                 break
                 ;;
