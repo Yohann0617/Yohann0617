@@ -27,7 +27,7 @@ net.ipv4.tcp_fin_timeout = 10
 net.ipv4.tcp_tw_reuse = 1
 
 # 启用 BBR 拥塞控制
-net.core.default_qdisc = cake
+net.core.default_qdisc = fq
 net.ipv4.tcp_congestion_control = bbr
 EOF
 
