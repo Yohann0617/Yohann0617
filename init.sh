@@ -484,7 +484,7 @@ tcp(){
                 break
                 ;;
             0)
-                source <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh)
+                common_op
                 break
                 ;;
             *)
