@@ -459,6 +459,42 @@ one_click_node(){
     done
 }
 
+# TCP调优
+tcp(){
+    clear
+    while true; do
+        echo -e "${CYN}请选择操作：${NC}"
+        echo "==========================================================="
+        echo -e "${WHT}1)  安装/开启BBR⭐${NC}"
+        echo -e "${WHT}2)  TCP调优⭐${NC}"
+        echo "==========================================================="
+        echo -e "${YEW}0)  返回${NC}"
+        echo "==========================================================="
+        read -p "请输入选项 (例: 1):" choice
+
+        case $choice in
+            1)
+                clear
+                bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/Linux-NetSpeed/master/tcp.sh)
+                break
+                ;;
+            2)
+                clear
+                bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/tcp_perf.sh)
+                break
+                ;;
+            0)
+                source <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh)
+                break
+                ;;
+            *)
+                clear
+                echo -e "${RED}无效的选项，请输入对应的数字${NC}"
+                ;;
+        esac
+    done
+}
+
 # 定义颜色
 BLK='\033[0;30m'
 RED='\033[0;31m'
@@ -496,7 +532,7 @@ while true; do
     echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  设置定时日志清理任务⭐⭐${NC}"
     echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  备份指定目录${NC}"
     echo -e "${YEW}3)  下载并运行 V2bX 安装脚本⭐\t\t${WHT}8)  上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHT}4)  测速/解锁测试⭐\t\t\t${WHT}9)  TCP调优${NC}"
+    echo -e "${WHT}4)  测速/解锁测试⭐\t\t\t${WHT}9)  开启BBR加速/TCP调优⭐${NC}"
     echo -e "${WHT}5)  安装Tab命令补全工具⭐⭐${NC}"
     echo "==========================================================="
     echo -e "${WHT}10)  Docker相关${NC}"
@@ -551,7 +587,7 @@ while true; do
             break
             ;;
         9)
-            bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/tcp_perf.sh)
+            tcp
             break
             ;;
         10)
