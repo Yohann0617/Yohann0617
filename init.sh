@@ -480,7 +480,64 @@ tcp(){
                 ;;
             2)
                 clear
-                bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/tcp_perf.sh)
+                bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/shell/refs/heads/master/tcp_perf.sh)
+                break
+                ;;
+            0)
+                source <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh)
+                break
+                ;;
+            *)
+                clear
+                echo -e "${RED}无效的选项，请输入对应的数字${NC}"
+                ;;
+        esac
+    done
+}
+
+# 常规操作
+common_op(){
+    clear
+    while true; do
+        echo -e "${CYN}请选择操作：${NC}"
+        echo "==========================================================="
+        echo -e "${WHT}1)  开启BBR加速/TCP调优⭐⭐${NC}"
+        echo -e "${WHT}2)  安装Tab命令补全工具⭐${NC}"
+        echo -e "${WHT}3)  设置定时日志清理任务⭐${NC}"
+        echo -e "${WHT}4)  获取本机IP（v4、v6）地址${NC}"
+        echo -e "${WHT}5)  备份指定目录${NC}"
+        echo -e "${WHT}6)  上传文件到个人网盘(tgNetDisc)${NC}"
+        echo "==========================================================="
+        echo -e "${YEW}0)  返回${NC}"
+        echo "==========================================================="
+        read -p "请输入选项 (例: 1):" choice
+
+        case $choice in
+            1)
+                tcp
+                break
+                ;;
+            2)
+                echo "正在安装Tab命令补全工具(bash-completion)..."
+                install_tab
+                break
+                ;;
+            3)
+                echo "正在设置定时日志清理任务..."
+                log_clean
+                echo "定时日志清理任务设置成功！"
+                break
+                ;;
+            4)
+                bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/shell/refs/heads/master/get_main_ip.sh)
+                break
+                ;;
+            5)
+                backup_directory
+                break
+                ;;
+            6)
+                upload_file
                 break
                 ;;
             0)
@@ -529,11 +586,11 @@ while true; do
     echo -e "${WHT}${NC}"
     echo -e "${CYN}请选择一个操作：${NC}"
     echo "==========================================================="
-    echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  设置定时日志清理任务⭐⭐${NC}"
-    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  备份指定目录${NC}"
-    echo -e "${YEW}3)  下载并运行 V2bX 安装脚本⭐\t\t${WHT}8)  上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHT}4)  测速/解锁测试⭐\t\t\t${WHT}9)  开启BBR加速/TCP调优⭐${NC}"
-    echo -e "${WHT}5)  安装Tab命令补全工具⭐⭐${NC}"
+    echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  甲骨文云设置多块网卡${NC}"
+    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐${NC}"
+    echo -e "${YEW}3)  下载并运行 V2bX 安装脚本⭐${NC}"
+    echo -e "${WHT}4)  测速/解锁测试⭐${NC}"
+    echo -e "${WHT}5)  常规操作⭐${NC}"
     echo "==========================================================="
     echo -e "${WHT}10)  Docker相关${NC}"
     echo "==========================================================="
@@ -550,7 +607,7 @@ while true; do
     case $choice in
         1)
             echo "正在下载并运行 kejilion.sh..."
-            curl -sS -O https://raw.githubusercontent.com/kejilion/sh/main/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
+            bash <(curl -sL https://raw.githubusercontent.com/kejilion/sh/main/kejilion.sh)
             break
             ;;
         2)
@@ -560,7 +617,7 @@ while true; do
             ;;
         3)
             echo "正在下载并运行 V2bX 安装脚本..."
-            wget -N https://raw.githubusercontent.com/wyx2685/V2bX-script/master/install.sh && bash install.sh
+            bash <(curl -sL https://raw.githubusercontent.com/wyx2685/V2bX-script/master/install.sh)
             break
             ;;
         4)
@@ -568,26 +625,11 @@ while true; do
             break
             ;;
         5)
-            echo "正在安装Tab命令补全工具(bash-completion)..."
-            install_tab
+            common_op
             break
             ;;
         6)
-            echo "正在设置定时日志清理任务..."
-            log_clean
-            echo "定时日志清理任务设置成功！"
-            break
-            ;;
-        7)
-            backup_directory
-            break
-            ;;
-        8)
-            upload_file
-            break
-            ;;
-        9)
-            tcp
+            bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/shell/refs/heads/master/setup_secondary_vnic.sh)
             break
             ;;
         10)
