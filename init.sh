@@ -429,7 +429,7 @@ one_click_node(){
                 ;;
             2)
                 clear
-                bash <(curl -Ls https://gitlab.com/rwkgyg/sing-box-yg/raw/main/sb.sh)
+                bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/sb.sh)
                 break
                 ;;
             3)
