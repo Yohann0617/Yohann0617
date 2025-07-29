@@ -123,10 +123,12 @@ if [ -f /proc/sys/net/ipv4/tcp_congestion_control ]; then
     sysctl -n net.ipv4.tcp_congestion_control
 fi
 
-# IPv6 拥塞控制算法（如果系统支持 IPv6）
+# 拥塞控制算法（IPv6）——仅在配置项存在时显示，若无则提示合并
 if [ -f /proc/sys/net/ipv6/tcp_congestion_control ]; then
     echo -n "📦 拥塞控制算法（IPv6）："
     sysctl -n net.ipv6/tcp_congestion_control
+else
+    echo "📦 拥塞控制算法（IPv6）：跟随 IPv4 设置（未单独暴露）"
 fi
 
 if sysctl -n net.core.default_qdisc >/dev/null; then
