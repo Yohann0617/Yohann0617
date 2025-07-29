@@ -496,7 +496,7 @@ while true; do
     echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  设置定时日志清理任务⭐⭐${NC}"
     echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  备份指定目录${NC}"
     echo -e "${YEW}3)  下载并运行 V2bX 安装脚本⭐\t\t${WHT}8)  上传文件到个人网盘(tgNetDisc)${NC}"
-    echo -e "${WHT}4)  测速/解锁测试⭐\t\t${WHT}9)  TCP调优${NC}"
+    echo -e "${WHT}4)  测速/解锁测试⭐\t\t\t${WHT}9)  TCP调优${NC}"
     echo -e "${WHT}5)  安装Tab命令补全工具⭐⭐${NC}"
     echo "==========================================================="
     echo -e "${WHT}10)  Docker相关${NC}"
