@@ -652,7 +652,7 @@ while true; do
         00)
             echo "正在卸载此脚本..."
             sed -i '/yohann() { bash <(curl -LsS https:\/\/init.19990617.xyz\/init.sh); }/d' ~/.bashrc
-            sed -i '/yohann() { bash <(curl -LsS https://raw.githubusercontent.com/Yohann0617/Yohann0617/refs/heads/main/init.sh); }/d' ~/.bashrc
+            sed -i '/yohann() { bash <(curl -LsS https:\/\/raw.githubusercontent.com\/Yohann0617\/Yohann0617\/refs\/heads\/main\/init.sh); }/d' ~/.bashrc
             sed -i '/source ~\/.bashrc/d' "$PROFILE_FILE"
             source ~/.bashrc
             source "$PROFILE_FILE"
