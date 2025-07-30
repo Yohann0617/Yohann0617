@@ -607,8 +607,7 @@ while true; do
 
     case $choice in
         1)
-            echo "正在下载并运行 kejilion.sh..."
-            bash <(curl -sL https://raw.githubusercontent.com/kejilion/sh/main/kejilion.sh)
+            bash <(curl -sL kejilion.sh)
             break
             ;;
         2)
