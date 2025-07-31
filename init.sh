@@ -374,7 +374,7 @@ check(){
 
         case $choice in
             1)
-                wget -qO- bench.sh | bash
+                bash <(curl -sL bench.sh)
                 break
                 ;;
             2)
