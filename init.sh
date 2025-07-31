@@ -364,9 +364,10 @@ check(){
         echo -e "${CYN}请选择一个测试脚本：${NC}"
         echo "==========================================================="
         echo -e "${WHT}1)  bench.sh测速${NC}"
-        echo -e "${WHT}2)  taier.sh大陆三网指定V4/V6测速(可指定网卡)⭐${NC}"
-        echo -e "${WHT}3)  IP解锁测试⭐${NC}"
-        echo -e "${WHT}4)  测试机器能否开设LXC容器${NC}"
+        echo -e "${WHT}2)  taier.sh大陆三网指定V4/V6测速(可指定网卡)${NC}"
+        echo -e "${WHT}3)  hyperspeed测速⭐${NC}"
+        echo -e "${WHT}4)  IP解锁测试⭐${NC}"
+        echo -e "${WHT}5)  测试机器能否开设LXC容器${NC}"
         echo "==========================================================="
         echo -e "${YEW}0)  返回${NC}"
         echo "==========================================================="
@@ -384,10 +385,14 @@ check(){
                 break
                 ;;
             3)
-                bash <(curl -L -s https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh)
+                bash <(curl -Lso- https://bench.im/hyperspeed)
                 break
                 ;;
             4)
+                bash <(curl -L -s https://raw.githubusercontent.com/1-stream/RegionRestrictionCheck/main/check.sh)
+                break
+                ;;
+            5)
                 clear
                 bash <(wget -qO- --no-check-certificate https://raw.githubusercontent.com/oneclickvirt/lxd/main/scripts/pre_check.sh)
                 break
