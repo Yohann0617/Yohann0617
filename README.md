@@ -9,7 +9,9 @@
 [![Gitee](https://img.shields.io/badge/dynamic/json?logo=Gitee&logoColor=red&label=Gitee&labelColor=e59082&color=green&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dfeedly%257Cinoreader%257CfeedsPub%26queryKey%3Dhttps://haysc.tech/feed.xml&style=flat-square)](https://gitee.com/fan-yuhui)
 -->
 
+<!-- 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Yohann0617&column=-1)](https://github.com/Yohann0617/github-profile-trophy)
+-->
 
 <table>
   <!-- 
