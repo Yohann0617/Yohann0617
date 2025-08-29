@@ -593,7 +593,7 @@ while true; do
     echo -e "${CYN}请选择一个操作：${NC}"
     echo "==========================================================="
     echo -e "${GRN}1)  下载并运行 kejilion.sh⭐⭐\t\t${WHT}6)  甲骨文云设置多块网卡${NC}"
-    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐${NC}"
+    echo -e "${YEW}2)  下载并运行 XrayR 安装脚本⭐\t\t${WHT}7)  部署 oci-helper${NC}"
     echo -e "${YEW}3)  下载并运行 V2bX 安装脚本⭐${NC}"
     echo -e "${WHT}4)  测速/解锁测试⭐${NC}"
     echo -e "${WHT}5)  常规操作⭐${NC}"
@@ -635,6 +635,10 @@ while true; do
             ;;
         6)
             bash <(curl -sL https://raw.githubusercontent.com/Yohann0617/shell/refs/heads/master/setup_secondary_vnic.sh)
+            break
+            ;;
+        7)
+            bash <(wget -qO- https://github.com/Yohann0617/oci-helper/releases/latest/download/sh_oci-helper_install.sh)
             break
             ;;
         10)
