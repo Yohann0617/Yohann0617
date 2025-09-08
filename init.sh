@@ -217,25 +217,36 @@ log_clean(){
 
 # 安装docker & docker-compose
 install_docker() {
-    if ! command -v docker &>/dev/null; then
-        clear
-        echo -e "${YEW}正在安装 Docker 环境...${NC}"
+    # if ! command -v docker &>/dev/null; then
+    #     clear
+    #     echo -e "${YEW}正在安装 Docker 环境...${NC}"
         
-        curl -fsSL https://get.docker.com | bash -s docker
-        echo -e "${GRN}Docker 安装成功！${NC}"
-    else
-        echo -e "${GRN}Docker 环境已经安装${NC}"
-    fi
+    #     curl -fsSL https://get.docker.com | bash -s docker
+    #     echo -e "${GRN}Docker 安装成功！${NC}"
+    # else
+    #     echo -e "${GRN}Docker 环境已经安装${NC}"
+    # fi
     
-    if ! command -v docker-compose &>/dev/null; then
-        echo -e "${YEW}正在安装 Docker Compose...${NC}"
+    # if ! command -v docker-compose &>/dev/null; then
+    #     echo -e "${YEW}正在安装 Docker Compose...${NC}"
         
-        curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        chmod +x /usr/local/bin/docker-compose
-        echo -e "${GRN}Docker Compose 安装成功！${NC}"
-    else
-        echo -e "${GRN}Docker Compose 已经安装${NC}"
-    fi
+    #     curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    #     chmod +x /usr/local/bin/docker-compose
+    #     echo -e "${GRN}Docker Compose 安装成功！${NC}"
+    # else
+    #     echo -e "${GRN}Docker Compose 已经安装${NC}"
+    # fi
+
+    clear
+    echo -e "${YEW}正在安装 Docker 环境...${NC}"
+        
+    curl -fsSL https://get.docker.com | sh
+    echo -e "${GRN}Docker 安装成功！${NC}"
+    echo -e "${YEW}正在安装 Docker Compose...${NC}"
+        
+    curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    echo -e "${GRN}Docker Compose 安装成功！${NC}"
 }
 
 docker_relate(){
