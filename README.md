@@ -1,4 +1,4 @@
-![总访问](https://komarev.com/ghpvc/?username=Yohann0617&color=green&style=flat-square&label=views)
+[![visitors](https://komarev.com/ghpvc/?username=Yohann0617&color=green&base=20000&abbreviated=true&style=flat-square)](https://github.com/Yohann0617)
 [![GitHub](https://img.shields.io/badge/dynamic/json?logo=github&label=GitHub&labelColor=495867&color=green&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3DYohann0617&style=flat-square)](https://github.com/Yohann0617)
 [![TikTok](https://img.shields.io/badge/dynamic/json?logo=TikTok&logoColor=black&label=TikTok&labelColor=f5efef&color=green&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dgithub%26queryKey%3Dhayschan&style=flat-square)](https://www.tiktok.com/@yohann.fan?is_from_webapp=1&sender_device=pc)
 [![Twitter](https://img.shields.io/badge/dynamic/json?logo=x&logoColor=blue&label=Twitter&labelColor=62CCF0&color=green&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dtwitter%26queryKey%3Dfanyuhui617&style=flat-square)](https://twitter.com/fanyuhui617)
