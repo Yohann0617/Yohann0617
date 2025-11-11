@@ -47,7 +47,7 @@
     <summary> ☜ Read more 👨‍💻</summary>
 <br>
 
-|   Total Visitors:   |   ![Visitor Count](https://profile-counter.glitch.me/Yohann0617/count.svg)   | 
+|   Total Visitors:   |   [![visitors](https://komarev.com/ghpvc/?username=Yohann0617&color=green&base=20000&abbreviated=true&style=flat-square)](https://github.com/Yohann0617)   | 
 | ---- | ---- |
 |  🔗 self-created VPN subscription address (base64) | [subscription address](https://chrome-go.yohann.pp.ua) |
 |  📑 how to use VPS to build VPN  |  [build VPN with VPS](https://github.com/Yohann0617/config/tree/main/cloudflare/vps) |
