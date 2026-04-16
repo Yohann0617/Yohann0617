@@ -314,22 +314,7 @@ rule_exists() {
 enable_icmp() {
     clear
     echo -e "${YEW}正在开启系统的ICMP协议...${NC}"
-    # 允许ICMP回显请求（ping），如果规则不存在
-    if ! rule_exists INPUT "-p icmp --icmp-type echo-request -j ACCEPT"; then
-        iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
-    fi
-    # 允许ICMP回显应答， 如果规则不存在
-    if ! rule_exists OUTPUT "-p icmp --icmp-type echo-reply -j ACCEPT"; then
-        iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
-    fi
-    # 限制ICMP请求速率为每秒1个，最多允许突发5个，如果规则不存在
-    if ! rule_exists INPUT "-p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT"; then
-        iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
-    fi
-    # 丢弃超过速率限制的ICMP请求，如果规则不存在
-    if ! rule_exists INPUT "-p icmp --icmp-type echo-request -j DROP"; then
-        iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
-    fi
+    iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
     echo -e "${GRN}系统的ICMP协议已启用${NC}"
     iptables -L -v -n --line-numbers
 }
@@ -338,19 +323,7 @@ enable_icmp() {
 disable_icmp() {
     clear
     echo -e "${YEW}正在禁用系统的ICMP协议...${NC}"
-    # 删除允许ICMP的规则（如果存在）
-    if rule_exists INPUT "-p icmp --icmp-type echo-request -j ACCEPT"; then
-        iptables -D INPUT -p icmp --icmp-type echo-request -j ACCEPT
-    fi
-    if rule_exists OUTPUT "-p icmp --icmp-type echo-reply -j ACCEPT"; then
-        iptables -D OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
-    fi
-    if rule_exists INPUT "-p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT"; then
-        iptables -D INPUT -p icmp --icmp-type echo-request -m limit --limit 1/sec --limit-burst 5 -j ACCEPT
-    fi
-    if rule_exists INPUT "-p icmp --icmp-type echo-request -j DROP"; then
-        iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
-    fi
+    iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
     echo -e "${GRN}系统的ICMP协议已禁用${NC}"
     iptables -L -v -n --line-numbers
 }
