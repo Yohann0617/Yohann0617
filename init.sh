@@ -314,7 +314,7 @@ rule_exists() {
 enable_icmp() {
     clear
     echo -e "${YEW}正在开启系统的ICMP协议...${NC}"
-    iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+    iptables -D INPUT -p icmp --icmp-type echo-request -j DROP
     echo -e "${GRN}系统的ICMP协议已启用${NC}"
     iptables -L -v -n --line-numbers
 }
