@@ -25,8 +25,8 @@
     <td>
       <h3>Hi👋 It's Yohann</h3>
       <ul>
-        <li>📖 I graduated from Suzhou University of Science and Technology in June 2022</li>
-        <li>🔭 I’m currently working at Shanghai ASUS</li>
+        <li>🌏 live in Suzhou</li>
+        <li>🔭 working at Shanghai</li>
         <li>😄 Thank you for your attention</li>
       </ul>
     </td>
