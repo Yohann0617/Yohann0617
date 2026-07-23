@@ -31,7 +31,7 @@
       </ul>
     </td>
     <td>
-      <img src="https://github-readme-stats-kappa-five-30.vercel.app/api?text_color=718096&bg_color=ffffff&hide_title=true&show_icons=true&icon_color=blue&username=Yohann0617"/>
+      <img src="https://github-stats-extended.vercel.app/api?text_color=718096&bg_color=ffffff&hide_title=true&show_icons=true&icon_color=blue&username=Yohann0617"/>
     </td>
   </tr>
 </table>
